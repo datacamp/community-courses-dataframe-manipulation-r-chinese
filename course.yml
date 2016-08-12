@@ -1,7 +1,7 @@
-title            : courses dataframe manipulation r chinese
+title            : 資料框整理技巧
 instructors      :
  - tonykuoyj@gmail.com
-description      : This is an automatically generated demo course which will help you on your way to create an awesome DataCamp course.
+description      : 在 R 語言導論中我們介紹了一種資料類型叫資料框，實務上我們面對的多數資料都是資料框的格式。我們將在這門課程中跟著草帽海賊團在新世界冒險，一邊學習各種資料框整理技巧，像是水平合併、垂直合併以及轉置，一邊尋找傳說中的 One Piece 大秘寶，與夥伴一同邁向偉大的航道。
 university       : DataCamp
 difficulty_level : 2
-time_needed      : 1 hour
+time_needed      : 2 hour
