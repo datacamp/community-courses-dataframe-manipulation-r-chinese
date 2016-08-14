@@ -1,7 +1,7 @@
 ---
 title_meta  : 第一章
 title       : 建立資料框
-description : 一場爭奪 One Piece 的海上冒險！既然要學習資料框的分析技巧，我們得先在 R 語言的工作環境中建立出資料框才行，讓我們來複習一下在 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.kbSrfF8)中學過的內容吧！
+description : 一場爭奪 One Piece 的海上冒險故事！既然要學習資料框的分析技巧，我們得先在 R 語言的工作環境中建立出資料框才行，讓我們來複習一下在 R 語言導論中學過的內容吧！
 
 --- type:NormalExercise lang:r xp:100 skills:1 key:9a073c3931
 ## 建立資料框
@@ -17,60 +17,91 @@ description : 一場爭奪 One Piece 的海上冒險！既然要學習資料框�
 - 身高
 
 *** =instructions
-- 使用 `data.frame()` 將右邊編輯區已經生成好的角色設定向量結合為一個資料框，並命名為 `straw_hat`。
+- 使用 `data.frame()` 將右邊編輯區已經生成好的角色設定向量結合為一個資料框，並命名為 `straw_hat_df`。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat <- data.frame(name, gender, occupation, bounty, age, birthday, height)`
+- 在編輯區鍵入 `straw_hat_df <- data.frame(names, gender, occupation, bounty, age, birthday, height)`
 
 *** =pre_exercise_code
 ```{r}
-# You can also prepare your dataset in a specific way in the pre exercise code
-
+# no pec
 ```
 
 *** =sample_code
 ```{r}
-# movie_selection is available in your workspace
+# 姓名
+name <- c("蒙其·D·魯夫", "羅羅亞·索隆", "娜美", "騙人布", "文斯莫克·香吉士", "多尼多尼·喬巴", "妮可·羅賓", "佛朗基", "布魯克")
 
-# Check out the structure of movie_selection
+# 性別
+gender <- c("男", "男", "女", "男", "男", "雄", "女", "男", "男")
 
+# 職業
+occupation <- c("船長", "劍士", "航海士", "狙擊手", "廚師", "船醫", "考古學家", "船匠", "音樂家")
 
-# Select movies that have a rating of 5 or higher: good_movies
+# 賞金
+bounty <- c(500000000, 320000000, 66000000, 200000000, 177000000, 100, 130000000, 94000000, 83000000)
 
+# 年齡
+age <- c(19, 21, 20, 19, 21, 17, 30, 36, 90)
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
+# 生日
+birthday <- c("05-05", "11-11", "07-03", "04-01", "03-02", "12-24", "02-06", "03-09", "04-03")
+
+# 身高
+height <- c(174, 181, 170, 176, 180, 90, 188, 240, 277)
+
+# 建立草帽資料框
 
 ```
 
 *** =solution
 ```{r}
-# movie_selection is available in your workspace
+# 姓名
+name <- c("蒙其·D·魯夫", "羅羅亞·索隆", "娜美", "騙人布", "文斯莫克·香吉士", "多尼多尼·喬巴", "妮可·羅賓", "佛朗基", "布魯克")
 
-# Check out the structure of movie_selection
-str(movie_selection)
+# 性別
+gender <- c("男", "男", "女", "男", "男", "雄", "女", "男", "男")
 
-# Select movies that have a rating of 5 or higher: good_movies
-good_movies <- movie_selection[movie_selection$Rating >= 5, ]
+# 職業
+occupation <- c("船長", "劍士", "航海士", "狙擊手", "廚師", "船醫", "考古學家", "船匠", "音樂家")
 
-# Plot Run (i.e. run time) on the x axis, Rating on the y axis, and set the color using Genre
-plot(good_movies$Run, good_movies$Rating, col = good_movies$Genre)
+# 賞金
+bounty <- c(500000000, 320000000, 66000000, 200000000, 177000000, 100, 130000000, 94000000, 83000000)
+
+# 年齡
+age <- c(19, 21, 20, 19, 21, 17, 30, 36, 90)
+
+# 生日
+birthday <- c("05-05", "11-11", "07-03", "04-01", "03-02", "12-24", "02-06", "03-09", "04-03")
+
+# 身高
+height <- c(174, 181, 170, 176, 180, 90, 188, 240, 277)
+
+# 建立草帽資料框
+straw_hat_df <- data.frame(name, gender, occupation, bounty, age, birthday, height)
 ```
 
 *** =sct
 ```{r}
-# SCT written with testwhat: https://github.com/datacamp/testwhat/wiki
+msg <- "&#19981;&#38656;&#35201;&#31227;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#21908;&#65281;"
+test_object("name",
+            incorrect_msg = msg)
+test_object("gender",
+            incorrect_msg = msg)
+test_object("occupation",
+            incorrect_msg = msg)
+test_object("bounty",
+            incorrect_msg = msg)
+test_object("age",
+            incorrect_msg = msg)
+test_object("birthday",
+            incorrect_msg = msg)
+test_object("height",
+            incorrect_msg = msg)
 
-test_function("str", args = "object",
-              not_called_msg = "You didn't call `str()`!",
-              incorrect_msg = "You didn't call `str(object = ...)` with the correct argument, `object`.")
-
-test_object("good_movies")
-
-test_function("plot", args = "x")
-test_function("plot", args = "y")
-test_function("plot", args = "col")
-
-test_error()
-
-success_msg("Good work!")
+test_data_frame("straw_hat_df", columns = c("name", "gender", "occupation", "bounty", "age", "birthday", "height"),
+                undefined_msg = "&#27298;&#26597;&#20320;&#26159;&#21542;&#26377;&#23559;&#29986;&#20986;&#30340;&#36039;&#26009;&#26694;&#21629;&#21517;&#28858; `straw_hat_df` &#65311;",
+                undefined_cols_msg = "&#27298;&#26597;&#20320;&#26159;&#21542;&#26377;&#36986;&#28431;&#20219;&#20309;&#19968;&#20491;&#27396;&#20301;&#65311;",
+                incorrect_msg = "&#27298;&#26597;&#20320;&#26159;&#21542;&#26377;&#23559;&#25152;&#26377;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#21152;&#20837; `data.frame()` &#20043;&#20013;&#65311;")
+success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#25105;&#20497;&#32380;&#32396;&#33322;&#21521;&#19979;&#19968;&#20491;&#23798;&#23996;&#65281;")
 ```
