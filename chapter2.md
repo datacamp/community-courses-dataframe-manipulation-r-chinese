@@ -16,7 +16,7 @@ description : 實務上我們很常會有新增變數、刪除變數或者重新
 
 *** =pre_exercise_code
 ```{r}
-# no pec
+straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
 ```
 
 *** =sample_code
