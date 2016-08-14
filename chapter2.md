@@ -3,7 +3,7 @@ title_meta  : 第二章
 title       : 欄位相關的技巧
 description : 實務上我們很常會有新增變數、刪除變數或者重新命名變數...等等的需求，在資料框的結構中，其實就是針對欄位進行整理，我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:297843af96
 ## 新增欄位
 
 草帽海賊團的廚師賓什莫克·香吉士要為船員們準備餐點，卻發現主要角色設定遺漏了大家最喜愛的料理，讓我們來幫助香吉士，將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
