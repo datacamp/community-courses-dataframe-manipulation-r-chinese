@@ -17,10 +17,10 @@ description : 一場爭奪 One Piece 的海上冒險故事！既然要學習資�
 - 身高
 
 *** =instructions
-- 使用 `data.frame()` 將右邊編輯區已經生成好的角色設定向量結合為一個資料框，並命名為 `straw_hat_df`。
+- 使用 `data.frame()` 將右邊編輯區已經定義好的角色設定向量結合為一個資料框，並命名為 `straw_hat_df`。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df <- data.frame(names, gender, occupation, bounty, age, birthday, height)`
+- 在編輯區鍵入 `straw_hat_df <- data.frame(name, gender, occupation, bounty, age, birthday, height)`
 
 *** =pre_exercise_code
 ```{r}
