@@ -84,25 +84,18 @@ straw_hat_df <- data.frame(name, gender, occupation, bounty, age, birthday, heig
 *** =sct
 ```{r}
 msg <- "&#19981;&#38656;&#35201;&#31227;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#21908;&#65281;"
-test_object("name",
-            incorrect_msg = msg)
-test_object("gender",
-            incorrect_msg = msg)
-test_object("occupation",
-            incorrect_msg = msg)
-test_object("bounty",
-            incorrect_msg = msg)
-test_object("age",
-            incorrect_msg = msg)
-test_object("birthday",
-            incorrect_msg = msg)
-test_object("height",
-            incorrect_msg = msg)
+test_object("name", undefined_msg = msg, incorrect_msg = msg)
+test_object("gender", undefined_msg = msg, incorrect_msg = msg)
+test_object("occupation", undefined_msg = msg, incorrect_msg = msg)
+test_object("bounty", undefined_msg = msg, incorrect_msg = msg)
+test_object("age", undefined_msg = msg, incorrect_msg = msg)
+test_object("birthday", undefined_msg = msg, incorrect_msg = msg)
+test_object("height", undefined_msg = msg, incorrect_msg = msg)
 
 test_function("data.frame", args = c("x"),
               incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#24050;&#23559;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#25918;&#20837; `data.frame()` &#20043;&#20013;&#65311;")
 
-test_object("straw_hat_df",
+test_object("straw_hat_df", undefined_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#20351;&#29992; `data.frame()` &#20989;&#25976;&#20006;&#19988;&#23559;&#32080;&#26524;&#25351;&#27966;&#32102; straw_hat_df&#65311;",
             incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#20351;&#29992; `data.frame()` &#20989;&#25976;&#20006;&#19988;&#23559;&#32080;&#26524;&#25351;&#27966;&#32102; straw_hat_df&#65311;")
 
 success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#25105;&#20497;&#32380;&#32396;&#33322;&#21521;&#19979;&#19968;&#20491;&#23798;&#23996;&#65281;")
