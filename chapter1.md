@@ -6,6 +6,8 @@ description : 在學習資料框的整理技巧之前，我們得先在 R 語言
 --- type:NormalExercise lang:r xp:100 skills:4 key:9a073c3931
 ## 建立資料框
 
+我們會用到很多 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)中的觀念與語法，非常建議你在開始本課程之前先去玩玩看 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)唷！
+
 草帽海賊團主要角色設定有：
 
 - 姓名
