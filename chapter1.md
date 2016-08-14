@@ -131,7 +131,7 @@ test_output_contains("head(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26
 test_function("tail", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `tail()` &#20989;&#25976;&#65311;")
 test_output_contains("tail(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `tail()` &#20989;&#25976;&#65311;")
 
-test_function("str", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `str()` &#20989;&#25976;&#65311;")
+test_function("str", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `str()` &#20989;&#25976;&#65311;")
 test_output_contains("str(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `str()` &#20989;&#25976;&#65311;")
 
 test_function("summary", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `summary()` &#20989;&#25976;&#65311;")
