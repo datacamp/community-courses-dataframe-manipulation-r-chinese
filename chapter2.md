@@ -50,7 +50,7 @@ test_object(straw_hat_df$favorite_food,
 success_msg("&#20320;&#24171;&#20102;&#39321;&#21513;&#22763;&#19968;&#20491;&#22823;&#24537;&#65292;&#36889;&#27171;&#20182;&#25165;&#30693;&#36947;&#35442;&#28310;&#20633;&#21738;&#20123;&#26009;&#29702;&#65292;&#22826;&#26834;&#20102;&#65281;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4 key:297843af96
+--- type:NormalExercise lang:r xp:100 skills:4 key:142b366f49
 ## 新增欄位（2）
 
 R 語言有一個很可愛的特性是**殊途同歸**，做同樣一件事情，可能有多種方式可以達成。在這個練習中我們要介紹如何使用 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cbind) 這個函數來將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
@@ -198,7 +198,7 @@ test_object(straw_hat_df,
 success_msg("&#22826;&#26834;&#20102;&#65292;&#38500;&#20102;&#21487;&#20197;&#30452;&#25509;&#25351;&#23450;&#27396;&#20301;&#30340;&#21517;&#31281;&#65292;&#20320;&#20063;&#21487;&#20197;&#29992;&#32034;&#24341;&#20540;&#20358;&#25351;&#23450;&#65292;&#26377;&#31354;&#21487;&#20197;&#22312; R Console &#20013;&#32244;&#32722;&#65281;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:ccfe68db30
 ## 為欄位重新命名
 
 R 語言可以使用 [names()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/names) 函數將資料框的欄位名稱用向量的格式輸出：
@@ -258,7 +258,7 @@ test_object(straw_hat_df$reward,
 success_msg("&#36899;&#40860;&#27611;&#30340;&#37325;&#26032;&#21629;&#21517;&#27396;&#20301;&#37117;&#38627;&#19981;&#20498;&#20320;&#65292;&#22826;&#26834;&#20102;&#65281;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:d3c614f19b
 ## 鑽研 subset() 函數
 
 前面練習示範的刪除欄位只是 [subset()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數的其中一個功能。`subset()` 函數在篩選觀測值與變數非常實用，假如你想快速看到草帽魯夫的懸賞金額，可以練習在 R Console 輸入：
@@ -309,7 +309,7 @@ test_output_contains("subset(straw_hat_df, bounty > 10000000 & age < 30, select 
 success_msg("&#22826;&#26834;&#20102;&#65292;`subset()` &#20989;&#25976;&#26159;&#24375;&#32780;&#26377;&#21147;&#30340;&#24037;&#20855;&#65292;&#23427;&#33021;&#22816;&#35731;&#20320;&#26356;&#26377;&#25928;&#29575;&#22320;&#34389;&#29702;&#36039;&#26009;&#26694;&#65281;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:2de6bd4bcf
 ## 新增列數
 
 前面練習我們介紹了 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數能夠協助新增欄位，聰明的你一定能夠舉一反三想到那是不是也有相對應的函數可以協助新增列數呢？沒有錯，R 語言的確有相對應的 [rbind()](http://www.rdocumentation.org/packages/R6Frame/versions/0.1.0/topics/rbind) 函數：
