@@ -99,4 +99,123 @@ success_msg("&#21703;&#65292;&#20320;&#24050;&#32147;&#23565;&#33609;&#24125;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:3d3db367ea
 ## 衍生計算數值型變數
 
-在前一個練習中我們對賞金進行級距的切分，你是否有感覺到單位的不便？
+在前一個練習中我們對賞金進行級距的切分時你是否有感覺到單位的不便？沒錯，通常在處理較大數量級的變數時我們會轉換單位便於使用，像是千、百萬或者十億。現在就讓我們來新增一個以百萬元貝里作為單位的變數 `bounty_million`。
+
+*** =instructions
+- 將原本的 `straw_hat_df$bounty` 除以 1,000,000 並指派給一個新資料框變數 `straw_hat_df$bounty_million`。
+
+*** =hint
+- 在編輯區鍵入 `straw_hat_df$bounty_million <- straw_hat_df$bounty / 1000000`。
+
+*** =pre_exercise_code
+```{r}
+straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+```
+
+*** =sample_code
+```{r}
+# 新增一個以百萬元貝里作為單位的 straw_hat_df$bounty_million
+straw_hat_df$bounty_million <- 
+```
+
+*** =solution
+```{r}
+# 新增一個以百萬元貝里作為單位的 straw_hat_df$bounty_million
+straw_hat_df$bounty_million <- straw_hat_df$bounty / 1000000
+```
+
+*** =sct
+```{r}
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559;&#36062;&#37329;&#38500;&#20197; 1 &#30334;&#33836;&#20006;&#29986;&#29983;&#19968;&#20491;&#26032;&#35722;&#25976; `bounty_million`&#65311;"
+test_object("straw_hat_df$bounty_million",
+            undefined_msg = msg, 
+            incorrect_msg = msg) 
+
+success_msg("&#30495;&#26159;&#22826;&#21426;&#23475;&#20102;&#65292;&#36889;&#19979;&#34893;&#29983;&#35336;&#31639;&#25976;&#20540;&#22411;&#35722;&#25976;&#20063;&#38627;&#19981;&#20498;&#20320;&#20102;&#65281;")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:4
+## 較難的衍生變數
+
+前進新世界，邁向成為海賊王道路上的挑戰是愈來愈艱辛，在接下來的練習我們要處理有一點棘手的問題。在原始的角色設定中，我們只有船員們的年齡與生日的月份和日期，即便海賊王世界所使用的紀年與我們所熟稔的西元紀年迥異，身為超級粉絲與資料狂熱份子，你依然想要新增一個變數欄位來紀錄包含西元年份的草帽海賊團船員生日。
+
+我們要先介紹 `Sys.Date()` 這個函數，它會回傳現在的系統日期，你可以在 R Console 輸入：
+
+```{r}
+Sys.Date()
+```
+
+R Console 會將現在的系統日期以 "%Y-%m-%d" 的格式回傳。`%Y` 代表四位數字的西元紀年，`%m` 代表兩位數字的月份，`%d` 代表兩位數字的日期。而運用 [format()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/format) 函數可以得到我們需要的西元年。
+
+```{r}
+format(Sys.Date(), '%Y')
+```
+
+產生出來的西元年格式是字元，如果想要做運算還需要利用 [as.numeric()](http://www.rdocumentation.org/packages/h2o/versions/3.8.3.3/topics/as.numeric) 轉為數值。
+
+```{r}
+as.numeric(format(Sys.Date(), '%Y'))
+```
+
+*** =instructions
+- 將 `Sys.Date()` 的產出指派給一個變數 `sys_date`。
+- 利用 `format()` 函數將 `sys_date` 的西元年指派給 `sys_date_year`。
+- 利用 `as.numeric()` 函數將 `sys_date_year` 轉換為數值並指派給 `sys_date_year_num`。
+
+*** =hint
+- `Sys.Date()` 不需要輸入參數
+- `format()` 函數第二個參數必須指定為 `'%Y'`
+
+*** =pre_exercise_code
+```{r}
+straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+```
+
+*** =sample_code
+```{r}
+# 產生 sys_date
+sys_date <- 
+
+# 產生 sys_date_year
+sys_date_year <- 
+
+# 產生 sys_date_year_num
+sys_date_year_num <- 
+
+```
+
+*** =solution
+```{r}
+# 產生 sys_date
+sys_date <- Sys.Date()
+
+# 產生 sys_date_year
+sys_date_year <- format(sys_date, '%Y')
+
+# 產生 sys_date_year_num
+sys_date_year_num <- as.numeric(sys_date_year)
+
+```
+
+*** =sct
+```{r}
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `Sys.Date()` &#20989;&#25976;&#29986;&#20986; `sys_date`&#65311;"
+test_object("sys_date", 
+            undefined_msg = msg, 
+            incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `format()` &#20989;&#25976;&#29986;&#20986; `sys_date_year`&#65311;"            
+test_object("sys_date_year", 
+            undefined_msg = msg, 
+            incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `as.numeric()` &#20989;&#25976;&#29986;&#20986; `sys_date_year_num`&#65311;"            
+test_object("sys_date_year_num", 
+            undefined_msg = msg, 
+            incorrect_msg = msg)
+            
+success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#20497;&#35201;&#25226;&#29986;&#20986;&#30340;&#35199;&#20803;&#24180;&#20221;&#28187;&#21435;&#33337;&#21729;&#20497;&#30340;&#24180;&#40801;&#65292;&#20358;&#24471;&#21040;&#27599;&#20491;&#20154;&#30340;&#35199;&#20803;&#20986;&#29983;&#24180;&#20221;&#65281;")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:4
+## 較難的衍生變數（2）
