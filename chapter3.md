@@ -317,7 +317,7 @@ test_object("birth_year_char",
 sucess_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#22312;&#19979;&#19968;&#20491;&#32244;&#32722;&#23601;&#21487;&#20197;&#22823;&#21151;&#21578;&#25104;&#65292;&#36245;&#24555;&#20358;&#21543;&#65281;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:a40e05d297
 ## 較難的衍生變數（3）
 
 呼，終於要完成這個有點麻煩的衍生變數了！我們接下來要將剛剛生成的 `birth_year_char` 與 `birthday` 結合，字串的結合我們要使用 [paste()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/paste) 函數：
