@@ -3,7 +3,7 @@ title_meta  : 第四章
 title       : 欄位聚合數值的計算
 description : 分析資料框常需要對某些欄位進行摘要統計，可能是求取總和或者平均值，讓你對變數的分佈更為清楚；有時候甚至你需要依據某個類別變數，分別計算不同類別的摘要統計，一如你在 Excel 中使用樞紐分析表一般。我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:eb29a9a1a9
 ## 摘要統計
 
 你與草帽海賊團同樣屬於**超新星世代**，知己知彼，百戰不殆。你打算要針對這個潛在對手好好分析，在第一章中我們曾經有介紹過 [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數，它可以幫助你快速暸解資料框的摘要，而[summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數除了可以應用在整個資料框之外，其實也可以使用在單一的變數上：
@@ -93,6 +93,6 @@ test_output_contains("sd(straw_hat_df$bounty)",
 sucess_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22296;&#30340;&#25080;&#36062;&#37329;&#38989;&#36889;&#40636;&#39640;&#65292;&#20320;&#26377;&#27794;&#26377;&#35258;&#24471;&#36996;&#26159;&#19981;&#35201;&#25307;&#24825;&#20182;&#20497;&#22909;&#20102;&#21602;&#65311;")
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:077f2d637a
 ## 摘要統計（2）
 
