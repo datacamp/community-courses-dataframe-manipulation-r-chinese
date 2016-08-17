@@ -96,3 +96,11 @@ sucess_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22
 --- type:NormalExercise lang:r xp:100 skills:4 key:077f2d637a
 ## 摘要統計（2）
 
+身為**超新星世代**的一員，你對草帽海賊團的戰力分析絕對不僅止於世界政府那粗糙的整體摘要統計，你想著也許針對不同性別或者不同戰鬥位置的船員分開剖析，可以幫助你找到草帽海賊團的弱點，便於在將來正面對決時能加以利用。
+
+於是我們要來學習使用類似在 Excel 中常用的**樞紐分析表**來達成這件事情，為了簡單地做到這件事情，接下來我們要使用 [ddply()](http://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/ddply) 函數，跟我們先前使用的函數不一樣的地方在於，它不是 R 語言的原生函數，而是源自於一個套件 [plyr](http://www.rdocumentation.org/packages/plyr/versions/1.8.4)，因此在使用之前必須要使用 [library()](http://www.rdocumentation.org/packages/SIM/versions/1.42.0/topics/Library) 函數將 [plyr](http://www.rdocumentation.org/packages/plyr/versions/1.8.4) 套件載入才行。
+
+```{r}
+library(plyr)
+```
+
