@@ -1,6 +1,6 @@
 ---
 title_meta  : 第三章
-title       : 衍生欄位的相關技巧
+title       : 生成衍生變數
 description : 從資料庫或者既有資料的變數有時候並不能滿足我們的分析需求，於是我們常需要生成衍生變數，可能是將類別型變數重新歸類、將數值型變數歸類為類別型變數或者針對數值型變數作計算，我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:db8d80a572
