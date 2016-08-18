@@ -6,17 +6,17 @@ description : 在你的資料分析專案中，資料可能散落在多個資料
 --- type:NormalExercise lang:r xp:100 skills:4 key:4aa0c0c890
 ## 建立一個惡魔果實的資料框
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:84d7738b12
 ## 內部聯結
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:5200a77316
 ## 左外部聯結
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:cf1c36b9fc
 ## 右外部聯結
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:69321d3583
 ## 全外部聯結
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:65494f3253
 ## 確認聯結資料框的內容
