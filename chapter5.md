@@ -311,9 +311,82 @@ success_msg("&#24685;&#21916;&#20320;&#65292;&#20320;&#24050;&#32147;&#25104;&#2
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:65494f3253
-## 多個參照欄位的例子
+## 多個參照欄位
+
+你的懸賞金額現在已經跟草帽魯夫並駕齊驅了，但你很好奇草帽魯夫的歷史懸賞金額，於是你再度駭入海軍的機密資料庫，你找到了一個資料框紀錄草帽魯夫各時期的懸賞金額。你發現了海軍利用事件以及賞金兩個欄位紀錄不同時期的懸賞金額，因此我們如果要參照不只一個欄位時，在 `by = ` 的參數設定要使用 `c()` 將多個參照欄位寫入：
+
+```{r}
+merge(df1, df2, by = c("col1", "col2", ...))
+```
+
+*** =instruction
+- 將 `luffy_event` 與 `luffy_event_bounty` 輸出在 R Console 看看。
+- 將 `luffy_event` 與 `luffy_event_bounty` 內部聯結產出 `luffy_bounty`。
+- 將 `luffy_bounty` 輸出在 R Console 看看。
+
+*** =hint
+- `merge()` 函數要設定 `by = c("name", "event")` 或採預設不指定 `by = ` 亦可。
+
+*** =pre_exercise_code
+```{r}
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/luffy_event_bounty.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/luffy_event.RData"))
+```
+
+*** =sample_code
+```{r}
+# luffy_event_bounty 與 luffy_event 都已預先載入
+
+# 將 `luffy_event_bounty` 與 `luffy_event` 輸出在 R Console
 
 
+
+# 內部聯結
+luffy_bounty <- 
+
+# 將 luffy_bounty 輸出在 R Console
+
+```
+
+*** =solution
+```{r}
+# luffy_event_bounty 與 luffy_event 都已預先載入
+
+# 將 `luffy_event_bounty` 與 `luffy_event` 輸出在 R Console
+luffy_event_bounty
+luffy_event
+
+# 內部聯結
+luffy_bounty <- merge(luffy_event, luffy_event_bounty, by = c("name", "event"))
+
+# 將 luffy_bounty 輸出在 R Console
+luffy_bounty
+```
+
+*** =sct
+```{r}
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#36664;&#20986; `luffy_event_bounty` &#22312; R Console&#65311;"
+test_output_contains("luffy_event_bounty",
+                     incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#36664;&#20986; `luffy_event` &#22312; R Console&#65311;"
+test_output_contains("luffy_event",
+                     incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `merge()` &#20989;&#25976;&#29983;&#25104; `luffy_bounty`&#65311;"
+test_object(name, 
+            undefined_msg = msg, 
+            incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#36664;&#20986; `luffy_bounty` &#22312; R Console&#65311;"
+test_output_contains("luffy_bounty",
+                     incorrect_msg = msg)
+
+success_msg("&#22826;&#22909;&#20102;&#65292;&#20320;&#21482;&#38656;&#35201;&#20877;&#23436;&#25104;&#19968;&#20491;&#32244;&#32722;&#23601;&#21487;&#20197;&#25104;&#28858;&#36039;&#26009;&#26694;&#25972;&#29702;&#30340;&#36229;&#32026;&#28023;&#36042;&#65292;&#25105;&#20497;&#36245;&#24555;&#23436;&#25104;&#23427;&#21543;&#65281;")
+```
+
+--- type:NormalExercise lang:r xp:100 skills:4
+## 寫 SQL 查詢語法
 
 *** =instruction
 
