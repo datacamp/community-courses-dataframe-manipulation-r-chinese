@@ -388,17 +388,3 @@ success_msg("&#22826;&#22909;&#20102;&#65292;&#20320;&#21482;&#38656;&#35201;&#2
 --- type:NormalExercise lang:r xp:100 skills:4
 ## 寫 SQL 查詢語法
 
-*** =instruction
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-
-*** =solution
-
-*** =sct
