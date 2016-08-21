@@ -37,7 +37,6 @@ description : 在學習資料框的整理技巧之前，我們得先在 R 語言
 name <- c("蒙其·D·魯夫", "羅羅亞·索隆", "娜美", "騙人布", "賓什莫克·香吉士", "多尼多尼·喬巴", "妮可·羅賓", "佛朗基", "布魯克")
 gender <- c("男", "男", "女", "男", "男", "雄", "女", "男", "男")
 occupation <- c("船長", "劍士", "航海士", "狙擊手", "廚師", "船醫", "考古學家", "船匠", "音樂家")
-bounty <- c(500000000, 320000000, 66000000, 200000000, 177000000, 100, 130000000, 94000000, 83000000)
 age <- c(19, 21, 20, 19, 21, 17, 30, 36, 90)
 birthday <- c("05-05", "11-11", "07-03", "04-01", "03-02", "12-24", "02-06", "03-09", "04-03")
 height <- c(174, 181, 170, 176, 180, 90, 188, 240, 277)
@@ -99,7 +98,7 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code

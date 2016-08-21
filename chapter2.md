@@ -16,7 +16,7 @@ description : 實務上我們很常會有新增變數、刪除變數或者篩選
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -67,7 +67,7 @@ df <- cbind(df, column_to_add)
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -121,10 +121,8 @@ df$column_to_delete <- NULL
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
-# 最喜愛料理的向量
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
-# 將向量加入資料框中成為新的欄位
 straw_hat_df$favorite_food <- favorite_food
 ```
 
@@ -167,7 +165,7 @@ df <- subset(df, select = c(-col1, -col2, ...))
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -223,7 +221,7 @@ names(df)[1] <- "new_name_column1"
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -275,7 +273,7 @@ subset(straw_hat_df, name == "蒙其·D·魯夫", select = c(name, bounty))
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -328,7 +326,7 @@ df <- rbind(df, row_to_add)
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code

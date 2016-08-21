@@ -16,7 +16,7 @@ description : 從資料庫或者既有資料的變數有時候並不能滿足我
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -63,7 +63,7 @@ df$new_column <- cut(df$column, breaks = c(0, break1, break2, Inf), labels = c("
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -109,7 +109,7 @@ success_msg("&#21703;&#65292;&#20320;&#24050;&#32147;&#23565;&#33609;&#24125;&#2
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -168,7 +168,7 @@ as.numeric(format(Sys.Date(), '%Y'))
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 ```
 
 *** =sample_code
@@ -244,7 +244,7 @@ vector1 <- df$col1
 
 *** =pre_exerise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 sys_date <- Sys.Date()
 sys_date_year <- format(sys_date, '%Y')
 sys_date_year_num <- as.numeric(sys_date_year)
@@ -343,7 +343,7 @@ char_pasted <- paste(char1, char2, sep = " ")
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv")
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
 sys_date <- Sys.Date()
 sys_date_year <- format(sys_date, '%Y')
 sys_date_year_num <- as.numeric(sys_date_year)
