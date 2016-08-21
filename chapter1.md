@@ -74,7 +74,7 @@ test_object("height", undefined_msg = msg, incorrect_msg = msg)
 
 test_object("straw_hat_df", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#20351;&#29992; `data.frame()` &#20989;&#25976;&#20006;&#19988;&#23559;&#32080;&#26524;&#25351;&#27966;&#32102; straw_hat_df&#65311;")
 
-success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#25105;&#20497;&#32380;&#32396;&#33322;&#21521;&#19979;&#19968;&#20491;&#23798;&#23996;&#65281;")
+success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#25105;&#20497;&#32380;&#32396;&#19979;&#19968;&#20491;&#32244;&#32722;&#65281;")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:cb3400c7e4
@@ -82,13 +82,13 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 我們可以使用幾個好用的函數來快速探索一個資料框：
 
-- `dim()`
-- `head()`
-- `tail()`
-- `str()`
-- `summary()`
+- [dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim)
+- [head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head)
+- [tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head)
+- [str()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str)
+- [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary)
 
-`dim()` 函數會回傳資料框的列數與欄數；`head()` 函數會回傳資料框的前六列；`tail()` 函數會回傳資料框的後六列；`str()` 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；`summary()` 函數會回傳每個欄位的敘述性統計資料。
+[dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[str()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
 
 *** =instructions
 - 使用這 5 個好用的函數探索已經載入工作環境的 `straw_hat_df`。
@@ -103,17 +103,17 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 *** =sample_code
 ```{r}
-# straw_hat_df 資料框已經預先載入
+# straw_hat_df 已經預先載入
 
-# 對 straw_hat_df 使用 `dim()` 、 `head()` 、 `tail()` 、 `str()` 與 `summary()`
+# 對 straw_hat_df 使用 dim() 、 head() 、 tail() 、 str() 與 summary()
 
 ```
 
 *** =solution
 ```{r}
-# straw_hat_df 資料框已經預先載入
+# straw_hat_df 已經預先載入
 
-# 對 straw_hat_df 使用 `dim()` 、 `head()` 、 `tail()` 、 `str()` 與 `summary()`
+# 對 straw_hat_df 使用 dim() 、 head() 、 tail() 、 str() 與 summary()
 dim(straw_hat_df)
 head(straw_hat_df)
 tail(straw_hat_df)
@@ -123,20 +123,76 @@ summary(straw_hat_df)
 
 *** =sct
 ```{r}
-test_function("dim", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `dim()` &#20989;&#25976;&#65311;")
 test_output_contains("dim(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `dim()` &#20989;&#25976;&#65311;")
 
-test_function("head", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `head()` &#20989;&#25976;&#65311;")
 test_output_contains("head(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `head()` &#20989;&#25976;&#65311;")
 
-test_function("tail", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `tail()` &#20989;&#25976;&#65311;")
 test_output_contains("tail(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `tail()` &#20989;&#25976;&#65311;")
 
-test_function("str", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `str()` &#20989;&#25976;&#65311;")
 test_output_contains("str(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `str()` &#20989;&#25976;&#65311;")
 
-test_function("summary", "x", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `summary()` &#20989;&#25976;&#65311;")
 test_output_contains("summary(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#23565; `straw_hat_df` &#20351;&#29992; `summary()` &#20989;&#25976;&#65311;")
 
-success_msg("&#22826;&#26834;&#20102;&#65292;&#24819;&#24517;&#20320;&#24050;&#32147;&#36843;&#19981;&#21450;&#24453;&#35201;&#33322;&#21521;&#19979;&#19968;&#20491;&#23798;&#23996;&#65292;&#25509;&#19979;&#20358;&#25105;&#20497;&#35201;&#25361;&#25136;&#36319;&#27396;&#20301;&#30456;&#38364;&#30340;&#25216;&#24039;&#65281;");
+success_msg("&#22826;&#26834;&#20102;&#65292;&#36889;&#20123;&#20989;&#25976;&#37117;&#38750;&#24120;&#23526;&#29992;&#65292;&#19968;&#23450;&#35201;&#25226;&#23427;&#20497;&#35352;&#36215;&#20358;&#65281;");
+```
+
+--- type:NormalExercise lang:r xp:100 skills:4
+## 依據欄位排序資料框
+
+有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [order()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來達成：
+
+```{r}
+df[order(df$col, decreasing = FALSE)]
+```
+
+[order()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數預設都是**遞增排序**，所以 `decreasing = ` 的參數預設為 `FALSE`，如果我們希望是**遞減排序**就必須將參數設為 `decreasing = TRUE`。
+
+*** =instruction
+- 用 `height` 遞增排序草帽海賊團資料框。
+- 用 `bounty` 遞減排序草帽海賊團資料框。
+
+*** =hint
+- `decreasing = ` 設為 `FALSE` 或者不指定參數直接採取預設。
+- `decreasing = ` 設為 `TRUE`。
+
+*** =pre_exercise_code
+```{r}
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+```
+
+*** =sample_code
+```{r}
+# straw_hat_df 已經預先載入
+
+# 用 height 遞增排序
+straw_hat_df[order(straw_hat_df$__, decreasing = __), ]
+
+# 用 bounty 遞減排序
+straw_hat_df[order(straw_hat_df$__, decreasing = __), ]
+
+```
+
+*** =solution
+```{r}
+# straw_hat_df 已經預先載入
+
+# 用 height 遞增排序
+straw_hat_df[order(straw_hat_df$height, decreasing = FALSE), ]
+
+# 用 bounty 遞減排序
+straw_hat_df[order(straw_hat_df$bounty, decreasing = TRUE), ]
+
+```
+
+*** =sct
+```{r}
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `order()` &#20989;&#25976;&#23565;&#36523;&#39640;&#20570;&#36958;&#22686;&#25490;&#24207;&#65311;"
+test_output_contains("straw_hat_df[order(straw_hat_df$height, decreasing = FALSE), ]",
+                     incorrect_msg = msg)
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `order()` &#20989;&#25976;&#23565;&#36062;&#37329;&#20570;&#36958;&#28187;&#25490;&#24207;&#65311;"
+test_output_contains("straw_hat_df[order(straw_hat_df$bounty, decreasing = TRUE), ]",
+                     incorrect_msg = msg)
+
+success_msg("&#22826;&#22909;&#20102;&#65292;&#36889;&#20123;&#29105;&#36523;&#32244;&#32722;&#23565;&#20320;&#32780;&#35328;&#19968;&#23450;&#37117;&#30456;&#30070;&#23481;&#26131;&#21543;&#65311;&#28310;&#20633;&#22909;&#25105;&#20497;&#23601;&#35201;&#33322;&#21521;&#19979;&#19968;&#20491;&#23798;&#23996;&#22217;&#65281;")
 ```
