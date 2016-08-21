@@ -136,7 +136,7 @@ test_output_contains("summary(straw_hat_df)", incorrect_msg = "&#30906;&#35469;&
 success_msg("&#22826;&#26834;&#20102;&#65292;&#36889;&#20123;&#20989;&#25976;&#37117;&#38750;&#24120;&#23526;&#29992;&#65292;&#19968;&#23450;&#35201;&#25226;&#23427;&#20497;&#35352;&#36215;&#20358;&#65281;");
 ```
 
---- type:NormalExercise lang:r xp:100 skills:4
+--- type:NormalExercise lang:r xp:100 skills:4 key:92e28431f1
 ## 依據欄位排序資料框
 
 有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [order()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來達成：
