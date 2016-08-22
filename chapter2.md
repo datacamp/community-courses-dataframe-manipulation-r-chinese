@@ -16,7 +16,7 @@ description : 實務上我們很常會有新增變數、刪除變數或者篩選
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -53,7 +53,7 @@ success_msg("&#20320;&#24171;&#20102;&#39321;&#21513;&#22763;&#19968;&#20491;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:142b366f49
 ## 新增欄位（2）
 
-R 語言有一個很可愛的特性是**殊途同歸**，做同樣一件事情，可能有多種方式可以達成。在這個練習中我們要介紹如何使用 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cbind) 這個函數來將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
+R 語言有一個很可愛的特性是**殊途同歸**，做同樣一件事情，可能有多種方式可以達成。在這個練習中我們要介紹如何使用 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cbind) 函數來將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
 
 ```{r}
 df <- cbind(df, column_to_add)
@@ -67,7 +67,7 @@ df <- cbind(df, column_to_add)
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -121,7 +121,7 @@ df$column_to_delete <- NULL
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
 straw_hat_df$favorite_food <- favorite_food
 ```
@@ -165,7 +165,7 @@ df <- subset(df, select = c(-col1, -col2, ...))
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -221,7 +221,7 @@ names(df)[1] <- "new_name_column1"
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -273,7 +273,7 @@ subset(straw_hat_df, name == "蒙其·D·魯夫", select = c(name, bounty))
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -326,7 +326,7 @@ df <- rbind(df, row_to_add)
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
