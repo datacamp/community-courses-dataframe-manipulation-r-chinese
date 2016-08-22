@@ -1,12 +1,12 @@
 ---
 title_meta  : 第一章
-title       : 建立資料框
-description : 在學習資料框的整理技巧之前，我們得先在 R 語言的工作環境中建立出可供我們練習的資料框才行，首先我們會複習一下在 R 語言導論中學過的內容，像是建立一個資料框，以及一些快速探索資料框的好用函數，一場爭奪 One Piece 的海上冒險故事！
+title       : 建立與探索資料框
+description : 在學習資料框的整理技巧之前，我們得先在 R 語言的工作環境中建立出可供我們練習的資料框才行，在本章我們首先會複習在 R 語言導論中學過的內容，像是建立一個資料框以及一些快速探索資料框的好用函數，一場爭奪 One Piece 的海上冒險故事！
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:9a073c3931
 ## 建立資料框
 
-我們會用到很多 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)中的觀念與語法，非常建議你在開始本課程之前先去玩玩看 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)唷！
+本課程會用到很多 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)中的觀念與語法，非常建議你先去玩玩看 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)再開始本課程唷！
 
 草帽海賊團主要角色設定有：
 
@@ -18,13 +18,13 @@ description : 在學習資料框的整理技巧之前，我們得先在 R 語言
 - 生日
 - 身高
 
-建立資料框之前，通常我們習慣先將各個欄位生成為向量，我們大概猜想得到姓名應該是字串型的向量，而年齡會是數值型的向量。資料框特性是可以容納不同的資料格式，這代表著我們可以生成一個資料框將所有的角色設定都記錄在其中。
+建立資料框之前通常習慣先將各個欄位生成為向量，我們大概猜想得到姓名應該是字串型的向量，而年齡會是數值型的向量。資料框特性是可以容納不同的資料格式，這代表著我們可以生成一個資料框將草帽海賊團的角色設定記錄在其中。
 
 *** =instructions
 - 使用 `data.frame()` 將右邊編輯區已經定義好的角色設定向量結合為一個資料框，並命名為 `straw_hat_df`。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df <- data.frame(name, gender, occupation, bounty, age, birthday, height)`
+- 在編輯區輸入 `straw_hat_df <- data.frame(name, gender, occupation, bounty, age, birthday, height)`
 
 *** =pre_exercise_code
 ```{r}
@@ -37,6 +37,7 @@ description : 在學習資料框的整理技巧之前，我們得先在 R 語言
 name <- c("蒙其·D·魯夫", "羅羅亞·索隆", "娜美", "騙人布", "賓什莫克·香吉士", "多尼多尼·喬巴", "妮可·羅賓", "佛朗基", "布魯克")
 gender <- c("男", "男", "女", "男", "男", "雄", "女", "男", "男")
 occupation <- c("船長", "劍士", "航海士", "狙擊手", "廚師", "船醫", "考古學家", "船匠", "音樂家")
+bounty <- c(500000000, 320000000, 66000000, 200000000, 177000000, 100, 130000000, 94000000, 83000000)
 age <- c(19, 21, 20, 19, 21, 17, 30, 36, 90)
 birthday <- c("05-05", "11-11", "07-03", "04-01", "03-02", "12-24", "02-06", "03-09", "04-03")
 height <- c(174, 181, 170, 176, 180, 90, 188, 240, 277)
@@ -82,13 +83,13 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 我們可以使用幾個好用的函數來快速探索一個資料框：
 
-- [dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim)
-- [head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head)
-- [tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head)
-- [str()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str)
-- [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary)
+- [dim( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數
+- [head( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
+- [tail( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
+- [str( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數
+- [summary( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數
 
-[dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[str()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
+[dim( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[tail( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[str( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[summary( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
 
 *** =instructions
 - 使用這 5 個好用的函數探索已經載入工作環境的 `straw_hat_df`。
@@ -98,7 +99,7 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
@@ -157,7 +158,7 @@ df[order(df$col, decreasing = FALSE)]
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_devil_fruit.RData"))
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 ```
 
 *** =sample_code
