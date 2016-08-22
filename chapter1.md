@@ -140,13 +140,13 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#36889;&#20123;&#20989;&#25976;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:92e28431f1
 ## 依據欄位排序資料框
 
-有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [order()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來達成：
+有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [order( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來達成：
 
 ```{r}
 df[order(df$col, decreasing = FALSE)]
 ```
 
-[order()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數預設都是**遞增排序**，所以 `decreasing = ` 的參數預設為 `FALSE`，如果我們希望是**遞減排序**就必須將參數設為 `decreasing = TRUE`。
+[order( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數預設都是**遞增排序**，所以 `decreasing = ` 的參數預設為 `FALSE`，如果我們希望是**遞減排序**就必須將參數設為 `decreasing = TRUE`。
 
 *** =instruction
 - 用 `height` 遞增排序草帽海賊團資料框。
