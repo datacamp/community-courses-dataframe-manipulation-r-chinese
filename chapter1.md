@@ -99,7 +99,7 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 *** =pre_exercise_code
 ```{r}
-straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv", stringsAsFactors = FALSE, encoding = "UTF-8")
 straw_hat_df$gender <- factor(straw_hat_df$gender)
 ```
 
