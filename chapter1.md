@@ -6,7 +6,7 @@ description : 在學習資料框的整理技巧之前，我們得先在 R 語言
 --- type:NormalExercise lang:r xp:100 skills:4 key:9a073c3931
 ## 建立資料框
 
-本課程會用到很多 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)中的觀念與語法，非常建議你先去玩玩看 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)再開始本課程唷！
+本課程會用到很多 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)中的觀念與語法，非常建議你先去玩玩看 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.xZfVkjM)再開始本課程！
 
 草帽海賊團主要角色設定有：
 
@@ -83,13 +83,13 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 我們可以使用幾個好用的函數來快速探索一個資料框：
 
-- [dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數
-- [head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
-- [tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
-- [str()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數
-- [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數
+- [`dim()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數
+- [`head()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
+- [`tail()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數
+- [`str()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數
+- [`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數
 
-[dim()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[tail()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[str( )](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
+[`dim()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[head()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[`tail()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[`str( )`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
 
 *** =instructions
 - 使用這 5 個好用的函數探索已經載入工作環境的 `straw_hat_df`。
@@ -99,7 +99,8 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
+straw_hat_df <- read.csv("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.csv", stringsAsFactors = FALSE)
+straw_hat_df$gender <- factor(straw_hat_df$gender)
 ```
 
 *** =sample_code
@@ -140,25 +141,26 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#36889;&#20123;&#20989;&#25976;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:92e28431f1
 ## 依據欄位排序資料框
 
-有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [order( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來達成：
+有時候我們對於資料框的外觀與排列會有自己的意見，例如會希望依照字母順序或者年齡大小的方式排序，在 R 語言可以使用 [`order()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數來實現：
 
 ```{r}
 df[order(df$col, decreasing = FALSE)]
 ```
 
-[order( )](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數預設都是**遞增排序**，所以 `decreasing = ` 的參數預設為 `FALSE`，如果我們希望是**遞減排序**就必須將參數設為 `decreasing = TRUE`。
+[`order()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/order) 函數預設都是**遞增排序**，所以 `decreasing = ` 的參數預設為 `FALSE`，如果我們希望是**遞減排序**就必須將參數設為 `decreasing = TRUE`。
 
-*** =instruction
+*** =instructions
 - 用 `height` 遞增排序草帽海賊團資料框。
 - 用 `bounty` 遞減排序草帽海賊團資料框。
 
 *** =hint
-- `decreasing = ` 設為 `FALSE` 或者不指定參數直接採取預設。
+- `decreasing = ` 設為 `FALSE` 或者不指定參數沿用預設。
 - `decreasing = ` 設為 `TRUE`。
 
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
+
 ```
 
 *** =sample_code
