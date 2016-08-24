@@ -4,15 +4,19 @@ title       : 生成衍生變數
 description : 從資料庫或者既有資料的變數有時候並不能滿足我們的分析需求，於是我們常需要生成衍生變數，可能是將類別型變數重新歸類、將數值型變數歸類為類別型變數或者針對數值型變數作計算，我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:db8d80a572
-## 類別型變數的重新分類
+## 類別型變數的分類
 
-草帽海賊團的船醫多尼多尼·喬巴是吃了**人人果實**的可愛馴鹿，他對於自己的性別設定跟其他男性船員不同感到不太開心，有超高人氣的他還沒有向粉絲開口，我們就已經知道他在想什麼了，讓我們新增一個性別欄位，這個欄位只會有兩種分類：男生或者女生。
+雖然草帽海賊團每個船員都有獨立作戰的能力，但交戰仍然區分為兩種類型：輔助型與戰鬥型。具體而言，我們的航海士（Navigator）、狙擊手（Sniper）、船醫（Doctor）與考古學家（Archaeologist）是屬於輔助型，其餘船員則不意外是屬於戰鬥型。我們要多加一個欄位紀錄船員們的戰鬥類型 `battle_role`，這樣的二元重新分類可以善用 [`ifelse()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/ifelse) 函數，讓我們來練習看看！
+
+```{r}
+ifelse(test, yes, no)
+```
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
 
 *** =hint
-- 我們要把原始是「男」與「雄」的值轉換為「男生」，把原始是「女」的值轉換為「女生」！
+- 我們要把職業是航海士（Navigator）、狙擊手（Sniper）、船醫（Doctor）與考古學家（Archaeologist）的船員指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
 
 *** =pre_exercise_code
 ```{r}
@@ -22,34 +26,73 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 *** =sample_code
 ```{r}
 # 填入適當的值
-straw_hat_df$gender_binary[straw_hat_df$gender == "__"] <- "男生"
-straw_hat_df$gender_binary[straw_hat_df$gender == "__"] <- "男生"
-straw_hat_df$gender_binary[straw_hat_df$gender == "__"] <- "女生"
+straw_hat_df$battle_role <- ifelse(straw_hat_df$occupation %in% c("__", "__", "__", "__"), yes = "__", no = "__")
 ```
 
 *** =solution
 ```{r}
 # 填入適當的值
-straw_hat_df$gender_binary[straw_hat_df$gender == "男"] <- "男生"
-straw_hat_df$gender_binary[straw_hat_df$gender == "雄"] <- "男生"
-straw_hat_df$gender_binary[straw_hat_df$gender == "女"] <- "女生"
+straw_hat_df$battle_role <- ifelse(straw_hat_df$occupation %in% c("Navigator", "Sniper", "Doctor", "Archaeologist"), yes = "Support", no = "Fighter")
 ```
 
 *** =sct
 ```{r}
-msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#22312;&#30059;&#24213;&#32218;&#30340;&#22320;&#26041;&#22635;&#20837;&#27491;&#30906;&#30340;&#20540;&#65311;"
+test_data_frame("straw_hat_df", columns = "battle_role",
+                undefined_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#19981;&#23567;&#24515;&#23559; `straw_hat_df` &#31227;&#38500;&#20102;&#65311;",
+                undefined_cols_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#27491;&#30906;&#29983;&#25104; `battle_role` &#35722;&#25976;&#65311;",
+                incorrect_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#27491;&#30906;&#29983;&#25104; `battle_role` &#35722;&#25976;&#65311;")
 
-test_object("straw_hat_df$gender_binary", 
-            undefined_msg = NULL, 
-            incorrect_msg = NULL) 
+success_msg("&#22826;&#26834;&#20102;&#65292;&#20294;&#20320;&#26377;&#24819;&#36942;&#20551;&#22914;&#25105;&#20497;&#37325;&#26032;&#27512;&#39006;&#19981;&#21482;&#20841;&#31278;&#39006;&#21029;&#65292;&#25033;&#35442;&#24590;&#40636;&#36774;&#65311;")
+```
 
-success_msg("&#22826;&#26834;&#20102;&#65292;&#21932;&#24052;&#24456;&#38283;&#24515;&#33258;&#24049;&#30340;&#35282;&#33394;&#35373;&#23450;&#36319;&#20854;&#20182;&#20154;&#19968;&#27171;&#65292;&#20294;&#26159;&#20182;&#19981;&#22909;&#24847;&#24605;&#36319;&#25105;&#20497;&#35498;&#35613;&#35613;&#65281;")
+--- type:NormalExercise lang:r xp:100 skills:4
+## 類別型變數的分類（2）
+
+在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型態，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
+
+*** =instructions
+- 將右邊編輯區畫底線的空位填入適當值。
+
+*** =hint
+- 我們要把職業是航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）的船員指定為 `battle_role = "Range"`，船醫（Doctor）指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
+
+*** =pre_exercise_code
+```{r}
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
+```
+
+*** =sample_code
+```{r}
+# 填入適當的值
+straw_hat_df$battle_role[straw_hat_df$occupation == "__"] <- "Support"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", "__")] <- "Fighter"
+```
+
+*** =solution
+```{r}
+# 填入適當的值
+straw_hat_df$battle_role[straw_hat_df$occupation == "Doctor"] <- "Support"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Navigator", "Sniper", "Archaeologist")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Captain", "Swordsman", "Cook", "Shipwright", "Musician")] <- "Fighter"
+```
+
+*** =sct
+```{r}
+test_data_frame("straw_hat_df",
+                columns = "battle_role",
+                eq_condition = "equivalent",
+                undefined_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#23559; `straw_hat_df` &#31227;&#38500;&#20102;&#65311;",
+                undefined_cols_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559; `straw_hat_df$battle_role` &#20316;&#20998;&#39006;&#65311;",
+                incorrect_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559; `straw_hat_df$battle_role` &#20316;&#20998;&#39006;&#65311;")
+
+success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#20497;&#35201;&#30475;&#30475;&#24590;&#40636;&#23565;&#25976;&#20540;&#22411;&#35722;&#25976;&#36914;&#34892;&#20998;&#39006;&#65281;")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:70f2080cea
 ## 數值型變數的分類
 
-草帽海賊團的船員經過多雷斯羅薩決戰之後賞金大幅上升，新世界其他的海賊團無不虎視眈眈，對草帽海賊團進行戰力評估，他們想要將船員依照賞金級距切分為低、中與高三個等級，這個作法如同新增加了一個類別型變數，但卻是由既有的數值型變數所衍生得到。在 R 語言中，我們可以善用 [cut()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cut) 函數來做這件事情。
+草帽海賊團的船員經過多雷斯羅薩決戰之後賞金大幅上升，新世界其他的海賊團無不虎視眈眈，對草帽海賊團進行戰力評估，他們想要將船員依照賞金級距切分為低、中與高三個等級，這個作法如同新增加了一個類別型變數，但卻是由既有的數值型變數所衍生得到。在 R 語言中，我們可以善用 [`cut()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cut) 函數來做這件事情。
 
 ```{r}
 df$new_column <- cut(df$column, breaks = c(0, break1, break2, Inf), labels = c("label1", "label2", "label3"))
@@ -145,13 +188,13 @@ success_msg("&#30495;&#26159;&#22826;&#21426;&#23475;&#20102;&#65292;&#36889;&#1
 Sys.Date()
 ```
 
-R Console 會將現在的系統日期以 "%Y-%m-%d" 的格式回傳。`%Y` 代表四位數字的西元紀年，`%m` 代表兩位數字的月份，`%d` 代表兩位數字的日期。而運用 [format()](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/format) 函數可以得到我們需要的西元年。
+R Console 會將現在的系統日期以 "%Y-%m-%d" 的格式回傳。`%Y` 代表四位數字的西元紀年，`%m` 代表兩位數字的月份，`%d` 代表兩位數字的日期。而運用 [`format()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/format) 函數可以得到我們需要的西元年。
 
 ```{r}
 format(Sys.Date(), '%Y')
 ```
 
-產生出來的西元年格式是字元，如果想要做運算還需要利用 [as.numeric()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/numeric) 轉為數值。
+產生出來的西元年格式是字元，如果想要做運算還需要利用 [`as.numeric()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/numeric) 轉為數值。
 
 ```{r}
 as.numeric(format(Sys.Date(), '%Y'))
@@ -226,7 +269,7 @@ success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#2
 vector1 <- df$col1
 ```
 
-計算後我們會得到船員的生日西元年份，但是你忽然想起來 `birthday` 是儲存成字元的資料格式，於是在結合之前可別忘了使用 [as.character()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/character) 函數轉換為字元！
+計算後我們會得到船員的生日西元年份，但是你忽然想起來 `birthday` 是儲存成字元的資料格式，於是在結合之前可別忘了使用 [`as.character()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/character) 函數轉換為字元！
 
 *** =instructions
 ```{r}
@@ -320,13 +363,13 @@ sucess_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#22312;&#19979;&#19
 --- type:NormalExercise lang:r xp:100 skills:4 key:a40e05d297
 ## 較難的衍生變數（3）
 
-呼，終於要完成這個有點麻煩的衍生變數了！我們接下來要將剛剛生成的 `birth_year_char` 與 `birthday` 結合，字串的結合我們要使用 [paste()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/paste) 函數：
+呼，終於要完成這個有點麻煩的衍生變數了！我們接下來要將剛剛生成的 `birth_year_char` 與 `birthday` 結合，字串的結合我們要使用 [`paste()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/paste) 函數：
 
 ```{r}
 char_pasted <- paste(char1, char2, sep = " ")
 ```
 
-注意預設的 `sep = ` 參數是空格，由於西元日期會以 `-` 連接，所以記得要使用 `sep = "-"`。結合好以後我們只需使用 [as.Date()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/as.Date) 函數將字元轉換成**日期**格式，就可以將這個向量新增至資料框了！
+注意預設的 `sep = ` 參數是空格，由於西元日期會以 `-` 連接，所以記得要使用 `sep = "-"`。結合好以後我們只需使用 [`as.Date()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/as.Date) 函數將字元轉換成**日期**格式，就可以將這個向量新增至資料框了！
 
 *** =instructions
 ```{r}
