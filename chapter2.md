@@ -12,7 +12,7 @@ description : 實務上我們很常會有新增變數、刪除變數或者篩選
 - 將右邊編輯區已經定義好的 `favorite_food` 向量加入 `straw_hat_df` 中。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df$favorite_food <- favorite_food`
+- 在編輯區輸入 `straw_hat_df$favorite_food <- favorite_food`
 
 *** =pre_exercise_code
 ```{r}
@@ -22,7 +22,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 *** =sample_code
 ```{r}
 # 最喜愛料理的向量
-favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
+favorite_food <- c("Meat", "Food matches wine", "Orange", "Fish", "Food matches black tea", "Sweets", "Food matches coffee", "Food matches coke", "Milk")
 
 # 將向量加入資料框中成為新的欄位
 straw_hat_df$favorite_food <- 
@@ -31,7 +31,7 @@ straw_hat_df$favorite_food <-
 *** =solution
 ```{r}
 # 最喜愛料理的向量
-favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
+favorite_food <- c("Meat", "Food matches wine", "Orange", "Fish", "Food matches black tea", "Sweets", "Food matches coffee", "Food matches coke", "Milk")
 
 # 將向量加入資料框中成為新的欄位
 straw_hat_df$favorite_food <- favorite_food
@@ -39,13 +39,18 @@ straw_hat_df$favorite_food <- favorite_food
 
 *** =sct
 ```{r}
-test_object(favorite_food,
-            undefined_msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;", 
-            incorrect_msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;") 
+msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;"
+test_object("favorite_food",
+            undefined_msg = msg, 
+            incorrect_msg = msg) 
 
-test_object(straw_hat_df$favorite_food, 
-            undefined_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#21521;&#37327;&#21152;&#20837;&#36039;&#26009;&#26694;&#20013;&#25104;&#28858;&#26032;&#30340;&#27396;&#20301;&#65311;", 
-            incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#21521;&#37327;&#21152;&#20837;&#36039;&#26009;&#26694;&#20013;&#25104;&#28858;&#26032;&#30340;&#27396;&#20301;&#65311;")
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#21521;&#37327;&#21152;&#20837;&#36039;&#26009;&#26694;&#20013;&#25104;&#28858;&#26032;&#30340;&#27396;&#20301;&#65311;"
+test_data_frame("straw_hat_df",
+                columns = "favorite_food",
+                eq_condition = "equivalent",
+                undefined_msg = msg,
+                undefined_cols_msg = msg,
+                incorrect_msg = msg)
 
 success_msg("&#20320;&#24171;&#20102;&#39321;&#21513;&#22763;&#19968;&#20491;&#22823;&#24537;&#65292;&#36889;&#27171;&#20182;&#25165;&#30693;&#36947;&#35442;&#28310;&#20633;&#21738;&#20123;&#26009;&#29702;&#65292;&#22826;&#26834;&#20102;&#65281;")
 ```
@@ -53,7 +58,7 @@ success_msg("&#20320;&#24171;&#20102;&#39321;&#21513;&#22763;&#19968;&#20491;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:142b366f49
 ## 新增欄位（2）
 
-R 語言有一個很可愛的特性是**殊途同歸**，做同樣一件事情，可能有多種方式可以達成。在這個練習中我們要介紹如何使用 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cbind) 函數來將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
+R 語言有一個很可愛的特性是**殊途同歸**，做同樣一件事情，可能有多種方式可以達成。在這個練習中我們要介紹如何使用 [`cbind()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/cbind) 函數來將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
 
 ```{r}
 df <- cbind(df, column_to_add)
@@ -63,7 +68,7 @@ df <- cbind(df, column_to_add)
 - 將右邊編輯區已經定義好的 `favorite_food` 向量利用 `cbind()` 函數加入 `straw_hat_df` 中。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df <- cbind(straw_hat_df, favorite_food)`
+- 在編輯區輸入 `straw_hat_df <- cbind(straw_hat_df, favorite_food)`
 
 *** =pre_exercise_code
 ```{r}
@@ -73,7 +78,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 *** =sample_code
 ```{r}
 # 最喜愛料理的向量
-favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
+favorite_food <- c("Meat", "Food matches wine", "Orange", "Fish", "Food matches black tea", "Sweets", "Food matches coffee", "Food matches coke", "Milk")
 
 # 利用 cbind() 函數將向量加入資料框中成為新的欄位
 straw_hat_df <- 
@@ -82,7 +87,7 @@ straw_hat_df <-
 *** =solution
 ```{r}
 # 最喜愛料理的向量
-favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
+favorite_food <- c("Meat", "Food matches wine", "Orange", "Fish", "Food matches black tea", "Sweets", "Food matches coffee", "Food matches coke", "Milk")
 
 # 利用 cbind() 函數將向量加入資料框中成為新的欄位
 straw_hat_df <- cbind(straw_hat_df, favorite_food)
@@ -90,16 +95,21 @@ straw_hat_df <- cbind(straw_hat_df, favorite_food)
 
 *** =sct
 ```{r}
-test_object(favorite_food,
-            undefined_msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;", 
-            incorrect_msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;") 
+msg = "&#19981;&#38656;&#35201;&#21034;&#38500;&#21407;&#26412;&#24171;&#20320;&#23450;&#32681;&#22909;&#30340;&#21521;&#37327;&#65281;"
+test_object("favorite_food",
+            undefined_msg = msg, 
+            incorrect_msg = msg) 
 
 test_function("cbind", 
                incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;")
 
-test_object(straw_hat_df$favorite_food, 
-            undefined_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#26032;&#22686;&#33267;&#36039;&#26009;&#26694;&#65311;", 
-            incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#26032;&#22686;&#33267;&#36039;&#26009;&#26694;&#65311;")
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#21521;&#37327;&#21152;&#20837;&#36039;&#26009;&#26694;&#20013;&#25104;&#28858;&#26032;&#30340;&#27396;&#20301;&#65311;"
+test_data_frame("straw_hat_df",
+                columns = "favorite_food",
+                eq_condition = "equivalent",
+                undefined_msg = msg,
+                undefined_cols_msg = msg,
+                incorrect_msg = msg)
 
 success_msg("&#22826;&#26834;&#20102;&#65292;&#23416;&#26371;&#26032;&#22686;&#20043;&#24460;&#25105;&#20497;&#20358;&#23416;&#32722;&#22914;&#20309;&#21034;&#38500;&#65281;")
 ```
@@ -117,12 +127,12 @@ df$column_to_delete <- NULL
 - 將 `straw_hat_df$favorite_food` 欄位從 `straw_hat_df` 中移除。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df$favorite_food <- NULL`
+- 在編輯區輸入 `straw_hat_df$favorite_food <- NULL`
 
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
-favorite_food <- c("肉", "搭配酒的食物", "橘子", "魚", "搭配紅茶的食物", "甜食", "搭配咖啡的食物", "搭配可樂的食物", "牛奶")
+favorite_food <- c("Meat", "Food matches wine", "Orange", "Fish", "Food matches black tea", "Sweets", "Food matches coffee", "Food matches coke", "Milk")
 straw_hat_df$favorite_food <- favorite_food
 ```
 
@@ -140,9 +150,10 @@ straw_hat_df$favorite_food <- NULL
 
 *** =sct
 ```{r}
-test_student_typed(c("straw_hat_df$favorite_food <- NULL", "straw_hat_df$favorite_food = NULL", 
-                     "straw_hat_df$favorite_food<-NULL", "straw_hat_df$favorite_food=NULL"),
-                   not_typed_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#27396;&#20301;&#25351;&#27966;&#32102; NULL&#65311;")
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#27396;&#20301;&#25351;&#27966;&#32102; NULL&#65311;"
+test_object("straw_hat_df", 
+            undefined_msg = msg, 
+            incorrect_msg = msg) 
 
 success_msg("&#22826;&#22909;&#20102;&#65292;&#19981;&#31649;&#20854;&#20182;&#20154;&#22810;&#40637;&#21892;&#35722;&#65292;&#26032;&#22686;&#21034;&#38500;&#27396;&#20301;&#37117;&#38627;&#19981;&#20498;&#20320;&#20102;&#65281;")
 ```
@@ -150,7 +161,7 @@ success_msg("&#22826;&#22909;&#20102;&#65292;&#19981;&#31649;&#20854;&#20182;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:c78ba59b50
 ## 刪除欄位（2）
 
-還記得我們在 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.FaeP7Yg)中有提到一個便利的 [subset()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數嗎？我們也可以利用它來刪除欄位，只需在想要刪除的欄位名稱前面加上**減號**，而且它還提供了更進階的功能，讓你可以一次刪除多個欄位！
+還記得我們在 [R 語言導論](https://www.datacamp.com/community/open-courses/r-%E8%AA%9E%E8%A8%80%E5%B0%8E%E8%AB%96#gs.FaeP7Yg)中有提到一個便利的 [`subset()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數嗎？我們也可以利用它來刪除欄位，只需在想要刪除的欄位名稱前面加上**減號**，而且它還提供了更進階的功能，讓你可以一次刪除多個欄位！
 
 ```{r}
 df <- subset(df, select = -col1)
@@ -161,7 +172,7 @@ df <- subset(df, select = c(-col1, -col2, ...))
 - 利用 `subset()` 函數寫一行程式將職業 `straw_hat_df$occupation` 與身高 `straw_hat_df$height` 從 `straw_hat_df` 中移除。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df <- subset(straw_hat_df, select = c(-occupation, -height))`
+- 在編輯區輸入 `straw_hat_df <- subset(straw_hat_df, select = c(-occupation, -height))`
 
 *** =pre_exercise_code
 ```{r}
@@ -189,7 +200,7 @@ test_function("subset", args = c("x", "select"),
               incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#20351;&#29992; `subset()` &#20989;&#25976;&#21034;&#38500;&#20102;&#32887;&#26989;&#33287;&#36523;&#39640;&#20841;&#20491;&#27396;&#20301;&#65311;"
-test_object(straw_hat_df,
+test_object("straw_hat_df",
             undefined_msg = msg, 
             incorrect_msg = msg) 
 
@@ -199,7 +210,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#38500;&#20102;&#21487;&#20197;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:ccfe68db30
 ## 為欄位重新命名
 
-R 語言可以使用 [names()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/names) 函數將資料框的欄位名稱用向量的格式輸出：
+R 語言可以使用 [`names()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/names) 函數將資料框的欄位名稱用向量的格式輸出：
 
 ```{r}
 names(df)
@@ -217,7 +228,7 @@ names(df)[1] <- "new_name_column1"
 - 將 `straw_hat_df` 的賞金欄位 `bounty` 改命名為 `reward`。
 
 *** =hint
-- 在編輯區鍵入 `names(straw_hat_df)[4] <- "reward"`
+- 在編輯區輸入 `names(straw_hat_df)[4] <- "reward"`
 
 *** =pre_exercise_code
 ```{r}
@@ -259,17 +270,17 @@ success_msg("&#36899;&#40860;&#27611;&#30340;&#37325;&#26032;&#21629;&#21517;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:d3c614f19b
 ## 鑽研 subset() 函數
 
-前面練習示範的刪除欄位只是 [subset()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數的其中一個功能。`subset()` 函數在篩選觀測值與變數非常實用，假如你想快速看到草帽魯夫的懸賞金額，可以練習在 R Console 輸入：
+前面練習示範的刪除欄位只是 [`subset()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數的其中一個功能。[`subset()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數在篩選觀測值與變數非常實用，假如你想快速看到草帽魯夫的懸賞金額，可以練習在 R Console 輸入：
 
 ```{r}
-subset(straw_hat_df, name == "蒙其·D·魯夫", select = c(name, bounty))
+subset(straw_hat_df, name == "Monkey D. Luffy", select = c(name, bounty))
 ```
 
 *** =instructions
 - 將草帽海賊團賞金大於 1000 萬貝里並且年齡小於 30 歲的成員篩選出來，欄位只需要包含姓名、賞金與年齡。
 
 *** =hint
-- 在編輯區鍵入 `subset(straw_hat_df, bounty > 10000000 & age < 30, select = c(name, bounty, age))`
+- 在編輯區輸入 `subset(straw_hat_df, bounty > 10000000 & age < 30, select = c(name, bounty, age))`
 
 *** =pre_exercise_code
 ```{r}
@@ -310,7 +321,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;`subset()` &#20989;&#25976;&#26159;
 --- type:NormalExercise lang:r xp:100 skills:4 key:2de6bd4bcf
 ## 新增列數
 
-前面練習我們介紹了 [cbind()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數能夠協助新增欄位，聰明的你一定能夠舉一反三想到那是不是也有相對應的函數可以協助新增列數呢？沒有錯，R 語言的確有相對應的 [rbind()](http://www.rdocumentation.org/packages/R6Frame/versions/0.1.0/topics/rbind) 函數：
+前面練習我們介紹了 [`cbind()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/subset) 函數能夠協助新增欄位，聰明的你一定能夠舉一反三想到那是不是也有相對應的函數可以協助新增列數呢？沒錯，R 語言的確有相對應的 [`rbind()`](http://www.rdocumentation.org/packages/R6Frame/versions/0.1.0/topics/rbind) 函數：
 
 ```{r}
 df <- rbind(df, row_to_add)
@@ -322,7 +333,7 @@ df <- rbind(df, row_to_add)
 - 利用 `rbind()` 將薇薇公主加入草帽海賊團資料框。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df <- rbind(straw_hat_df, princess_vivi)`
+- 在編輯區輸入 `straw_hat_df <- rbind(straw_hat_df, princess_vivi)`
 
 *** =pre_exercise_code
 ```{r}
@@ -334,7 +345,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 # straw_hat_df 資料框已預先載入
 
 # 薇薇公主
-princess_vivi <- c("奈菲魯塔莉·薇薇", "女", "公主", NA, 18, "02-02", NA)
+princess_vivi <- c("Nefeltari Vivi", "Female", "Princess of Alabasta", NA, 18, "02-02", NA)
 
 # 將薇薇公主加入草帽海賊團資料框
 straw_hat_df <- 
@@ -345,7 +356,7 @@ straw_hat_df <-
 # straw_hat_df 資料框已預先載入
 
 # 薇薇公主
-princess_vivi <- c("奈菲魯塔莉·薇薇", "女", "公主", NA, 18, "02-02", NA)
+princess_vivi <- c("Nefeltari Vivi", "Female", "Princess of Alabasta", NA, 18, "02-02", NA)
 
 # 將薇薇公主加入草帽海賊團資料框
 straw_hat_df <- rbind(straw_hat_df, princess_vivi)
