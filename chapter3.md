@@ -129,11 +129,11 @@ df$new_column <- cut(df$column, breaks = c(0, break1, break2, Inf), labels = c("
 ```
 
 *** =instructions
-- 新增一個變數 `bounty_level` 將賞金小於 8 千 3 百萬貝里的船員歸類為低，賞金介於 8 千 3 百萬貝里與 1 億 8 千萬貝里之間的船員歸類為中，將賞金高於 1 億 8 千萬貝里的船員歸類為高。
+- 新增一個變數 `bounty_level` 將賞金小於 8 千 3 百萬貝里的船員歸類為 `"Low"`，賞金介於 8 千 3 百萬貝里與 1 億 8 千萬貝里之間的船員歸類為 `"Medium"`，將賞金高於 1 億 8 千萬貝里的船員歸類為 `"High"`。
 - 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
-- `cut()` 函數的第一個參數要設為 `straw_hat_df$bounty`，`breaks` 的級距要加入 8 千 3 百萬貝里與 1 億 8 千萬貝里，`labels` 則是要將低、中與高依序放入！
+- `cut()` 函數的第一個參數要設為 `straw_hat_df$bounty`，`breaks` 的級距要加入 8 千 3 百萬貝里與 1 億 8 千萬貝里，`labels` 則是要將 `"Low"`、 `"Medium"` 與 `"High"` 依序放入！
 - 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
@@ -157,7 +157,7 @@ straw_hat_df$bounty_level <- cut(straw_hat_df$bounty, breaks = c(0, __, __, Inf)
 # straw_hat_df 已預先載入
 
 # 填入適當的值
-straw_hat_df$bounty_level <- cut(straw_hat_df$bounty, breaks = c(0, 83000000, 180000000, Inf), labels = c("低", "中", "高"))
+straw_hat_df$bounty_level <- cut(straw_hat_df$bounty, breaks = c(0, 83000000, 180000000, Inf), labels = c("Low", "Medium", "High"))
 
 # 將資料框輸出在 R Console
 straw_hat_df
