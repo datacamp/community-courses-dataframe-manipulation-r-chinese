@@ -335,18 +335,14 @@ vector1 <- df$col1
 計算後我們會得到船員的生日西元年份，但是你忽然想起來 `birthday` 是儲存成字元的資料格式，於是在結合之前可別忘了使用 [`as.character()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/character) 函數轉換為字元！
 
 *** =instructions
-```{r}
 - 將年齡從資料框中選出，另外指派為一個向量 `age`。
 - 將生日從資料框中選出，另外指派為一個向量 `birthday`。
 - 將系統日期西元年份 `sys_date_year_num` 減去 `age` 得到各個船員的生日西元年份 `birth_year`。
 - 使用 `as.character()` 將 `birth_year` 轉成字元 `birth_year_char`。
-```
 
 *** =hint
-```{r}
 - 輸入 `age <- straw_hat_df$age` 與 `birthday <- straw_hat_df$birthday` 將需要計算的欄位獨立出來。
 - 記得使用 `as.character()` 函數。
-```
 
 *** =pre_exerise_code
 ```{r}
