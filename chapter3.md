@@ -514,9 +514,12 @@ test_object("birth_date",
             incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#25104;&#21151;&#23559; `birth_date` &#26032;&#22686;&#33267;&#33609;&#24125;&#28023;&#36042;&#22296;&#36039;&#26009;&#26694;&#20013;&#65311;"
-test_object("straw_hat_df$birth_date", 
-            undefined_msg = msg, 
-            incorrect_msg = msg)
+
+test_data_frame("straw_hat_df",
+                columns = "birth_date",
+                undefined_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#19981;&#23567;&#24515;&#23559; `straw_hat_df` &#31227;&#38500;&#20102;&#65311;",
+                undefined_cols_msg = msg,
+                incorrect_msg = msg)
 
 test_output_contains("straw_hat_df",
                      incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
