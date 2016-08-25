@@ -120,7 +120,7 @@ test_object("favorite_food",
             incorrect_msg = msg) 
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;"              
-test_function_result("cbind",
+#test_function_result("cbind",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 
@@ -237,7 +237,7 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#22320;&#20351;&#29992; `subset()` &#20989;&#25976;&#65311;"
-test_function_result("subset",
+#test_function_result("subset",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 
@@ -419,7 +419,7 @@ straw_hat_df
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `rbind()` &#20989;&#25976;&#65311;"
         
-test_function_result("rbind",
+#test_function_result("rbind",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 

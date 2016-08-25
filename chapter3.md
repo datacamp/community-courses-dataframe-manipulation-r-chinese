@@ -167,7 +167,7 @@ straw_hat_df
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `cut()` &#20989;&#25976;&#65311;"
 
-test_function_result("cut",
+#test_function_result("cut",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 
@@ -406,7 +406,7 @@ test_object("birth_year",
             incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#29992; `as.character()` &#23559;&#25976;&#20540;&#36681;&#25563;&#28858;&#23383;&#20803;&#65311;"
-test_function_result("as.character",
+#test_function_result("as.character",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 
@@ -494,7 +494,7 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `paste()` &#20989;&#25976;&#65311;"
-test_function_result("paste",
+#test_function_result("paste",
                      not_called_msg = msg,
                      incorrect_msg = msg)
 
@@ -504,7 +504,7 @@ test_object("birth_date_char",
             incorrect_msg = msg)
             
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `as.Date()` &#20989;&#25976;&#65311;"
-test_function_result("as.Date",
+#test_function_result("as.Date",
                      not_called_msg = msg,
                      incorrect_msg = msg)
               
