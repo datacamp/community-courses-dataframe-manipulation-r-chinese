@@ -6,13 +6,13 @@ description : 分析資料框常需要對某些欄位進行摘要統計，可能
 --- type:NormalExercise lang:r xp:100 skills:4 key:eb29a9a1a9
 ## 摘要統計
 
-你與草帽海賊團同樣屬於**超新星世代**，知己知彼，百戰不殆。你打算要針對這個潛在對手好好分析，在第一章中我們曾經有介紹過 [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數，它可以幫助你快速暸解資料框的摘要，而[summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數除了可以應用在整個資料框之外，其實也可以使用在單一的變數上：
+你與草帽海賊團同樣屬於**超新星世代**，知己知彼，百戰不殆。你打算要針對這個潛在對手好好分析，在第一章中我們曾經有介紹過 [`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數，它可以幫助你快速暸解資料框的摘要，而[`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數除了可以應用在整個資料框之外，其實也可以使用在單一的變數上：
 
 ```{r}
 summary(df$col)
 ```
 
-我們也可以善用簡單的 [sum()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/sum) 函數或 [sd()](http://www.rdocumentation.org/packages/stats/versions/3.3.1/topics/sd) 函數產出統計值，不一定只能仰賴 [summary()](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數產出既定的摘要統計值。
+我們也可以善用簡單的 [`sum()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/sum) 函數或 [`sd()`](http://www.rdocumentation.org/packages/stats/versions/3.3.1/topics/sd) 函數產出統計值，不一定只能仰賴 [`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數產出既定的摘要統計值。
 
 *** =instructions
 - 對草帽海賊團資料框使用 `summary()` 函數
@@ -72,22 +72,18 @@ sd(straw_hat_df$bounty)
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23565; `straw_hat_df` &#20351;&#29992; `summary()` &#20989;&#25976;&#65311;"
 test_output_contains("summary(straw_hat_df)",
-                     times = 1,
                      incorrect_msg = msg)
                      
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23565; `straw_hat_df$height` &#20351;&#29992; `summary()` &#20989;&#25976;&#65311;"
 test_output_contains("summary(straw_hat_df$height)",
-                     times = 1,
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23565; `straw_hat_df$bounty` &#20351;&#29992; `sum()` &#20989;&#25976;&#65311;"
 test_output_contains("sum(straw_hat_df$bounty)",
-                     times = 1,
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23565; `straw_hat_df$bounty` &#20351;&#29992; `sd()` &#20989;&#25976;&#65311;"
 test_output_contains("sd(straw_hat_df$bounty)",
-                     times = 1,
                      incorrect_msg = msg)
 
 sucess_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22296;&#30340;&#25080;&#36062;&#37329;&#38989;&#36889;&#40636;&#39640;&#65292;&#20320;&#26377;&#27794;&#26377;&#35258;&#24471;&#36996;&#26159;&#19981;&#35201;&#25307;&#24825;&#20182;&#20497;&#22909;&#20102;&#21602;&#65311;")
@@ -98,13 +94,13 @@ sucess_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22
 
 身為**超新星世代**的一員，你對草帽海賊團的戰力分析絕對不僅止於世界政府那粗糙的整體摘要統計，你想著也許針對不同性別或者不同戰鬥位置的船員分開剖析，可以幫助你找到草帽海賊團的弱點，便於在將來正面對決時能加以利用。
 
-於是我們要來學習使用類似在 Excel 中常用的**樞紐分析表**來達成這件事情，為了簡單地做到這件事情，接下來我們要使用 [ddply()](http://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/ddply) 函數，跟我們先前使用的函數不一樣的地方在於，它不是 R 語言的原生函數，而是源自於一個套件 [plyr](http://www.rdocumentation.org/packages/plyr/versions/1.8.4)，因此在使用之前必須要使用 [library()](http://www.rdocumentation.org/packages/SIM/versions/1.42.0/topics/Library) 函數將 [plyr](http://www.rdocumentation.org/packages/plyr/versions/1.8.4) 套件載入才行。
+於是我們要來學習使用類似在 Excel 中常用的**樞紐分析表**來達成這件事情，為了簡單地做到這件事情，接下來我們要使用 [`ddply()`](http://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/ddply) 函數，跟我們先前使用的函數不一樣的地方在於，它不是 R 語言的原生函數，而是源自於一個套件 [`plyr`](http://www.rdocumentation.org/packages/plyr/versions/1.8.4)，因此在使用之前必須要使用 [`library()`](http://www.rdocumentation.org/packages/SIM/versions/1.42.0/topics/Library) 函數將 [`plyr`](http://www.rdocumentation.org/packages/plyr/versions/1.8.4) 套件載入才行。
 
 ```{r}
 library(plyr)
 ```
 
-[ddply()](http://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/ddply) 函數需要輸入較多參數，`.variables =` 要放的是欲分別摘要的類別型變數，`.fun = summarise` 在現階段先不做更動，後面則是加上聚合計算欄位的名稱與算式：
+[`ddply()`](http://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/ddply) 函數需要輸入較多參數，`.variables =` 要放的是欲分別摘要的類別型變數，`.fun = summarise` 在現階段先不做更動，後面則是加上聚合計算欄位的名稱與算式：
 
 ```{r}
 ddply(df, .variables = c("category1", "category2", ...), .fun = summarise, mean_value1 = mean(value))
@@ -125,7 +121,7 @@ ddply(df, .variables = c("category1", "category2", ...), .fun = summarise, mean_
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
-battle_role <- factor(c("戰鬥系", "戰鬥系", "輔助系", "輔助系", "戰鬥系", "輔助系", "輔助系", "戰鬥系", "戰鬥系"))
+battle_role <- factor(c("Fighter", "Fighter", "Support", "Support", "Fighter", "Support", "Support", "Fighter", "Fighter"))
 straw_hat_df$battle_role <- battle_role
 ```
 
@@ -147,7 +143,6 @@ ddply(straw_hat_df, .variables = "__", .fun = summarise, ttl_bounty = sum(__))
 
 # 依據 gender 與 battle_role 計算平均身高與加總賞金
 ddply(straw_hat_df, .variables = c("__", "__"), .fun = summarise, avg_height = mean(__), ttl_bounty = sum(__))
-
 ```
 
 *** =solution
@@ -168,7 +163,6 @@ ddply(straw_hat_df, .variables = "battle_role", .fun = summarise, ttl_bounty = s
 
 # 依據 gender 與 battle_role 計算平均身高與加總賞金
 ddply(straw_hat_df, .variables = c("gender", "battle_role"), .fun = summarise, avg_height = mean(height), ttl_bounty = sum(bounty))
-
 ```
 
 *** =sct
@@ -199,7 +193,7 @@ success_msg("&#21703;&#65292;&#33021;&#22816;&#23436;&#25104;&#21040;&#36889;&#3
 
 我們首先介紹如何將一個寬資料框變為長資料框，你記得在草帽海賊團資料框中，我們有 2 個整數欄位嗎？它們分別是 `age` 和 `height`，但你有想過這是我們儲存資料的唯一方法嗎？我們可以改用一個類別欄位儲存數值的種類以及一個數值欄位儲存數值，如此一來不管有多少個數值，我們都可以用兩個欄位儲存！
 
-進行寬資料框變為長資料框時我們需要使用 [gather()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數，它不是 R 語言的原生函數，而是源自於一個套件 [tidyr](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1)
+進行寬資料框變為長資料框時我們需要使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數，它不是 R 語言的原生函數，而是源自於一個套件 [`tidyr`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1)
 
 *** =instruction
 - 載入 `tidyr` 套件。
@@ -223,7 +217,6 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 # 建立一個新的資料框 straw_hat_wide_df 僅包含姓名、年齡與身高
 straw_hat_wide_df <- 
-
 ```
 
 *** =solution
@@ -235,7 +228,6 @@ library(tidyr)
 
 # 建立一個新的資料框 straw_hat_wide_df 僅包含姓名、年齡與身高
 straw_hat_wide_df <- straw_hat_df[, c("name", "age", "bounty", "height")]
-
 ```
 *** =sct
 ```{r}
@@ -254,7 +246,7 @@ success_msg("&#22909;&#65292;&#29105;&#36523;&#23436;&#30050;&#20102;&#65281;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:45945ea8ab
 ## 資料轉置：寬變長（2）
 
-接著我們使用 [gather()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數來把寬資料框變為長資料框，[gather()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數必須要指定幾個參數，第一個是寬資料框名稱，而 `key = ` 是轉置後用來儲存**數值種類**的欄位名稱，`value = ` 是轉置後用來儲存**數值**的欄位名稱。後面則輸入需要被轉置的原始欄位名稱 :
+接著我們使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數來把寬資料框變為長資料框，[gather()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數必須要指定幾個參數，第一個是寬資料框名稱，而 `key = ` 是轉置後用來儲存**數值種類**的欄位名稱，`value = ` 是轉置後用來儲存**數值**的欄位名稱。後面則輸入需要被轉置的原始欄位名稱 :
 
 ```{r}
 gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
@@ -276,26 +268,24 @@ library(tidyr)
 
 *** =sample_code
 ```{r}
-# straw_hat_wide_df 、 tidyr已預先載入
+# straw_hat_wide_df 、 tidyr 已預先載入
 
 # 轉置
 straw_hat_long_df <- gather(__, key = __, value = __, __, __)
 
 # 看看 straw_hat_long_df 前六列
 
-
 ```
 
 *** =solution
 ```{r}
-# straw_hat_wide_df 、 tidyr已預先載入
+# straw_hat_wide_df 、 tidyr 已預先載入
 
 # 轉置
 straw_hat_long_df <- gather(straw_hat_wide_df, key = cate, value = int, height, age)
 
 # 看看 straw_hat_long_df 前六列
 head(straw_hat_long_df)
-
 ```
 
 *** =sct
@@ -317,8 +307,8 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#24050;&#32147;&#2
 
 完成這個練習你的資料整理懸賞金額就可以提升至數千萬貝里，成為名副其實能夠跟草帽海賊團相抗衡的**超新星世代**！
 
-進行長資料框轉置為寬資料框時我們使用同樣源於 [tidyr](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1) 套件的
-[spread()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/spread) 函數。函數必須要指定幾個參數，第一個是長資料框名稱，而 `key = ` 是用來儲存**數值種類**的欄位名稱，`value = ` 是用來儲存**數值**的欄位名稱：
+進行長資料框轉置為寬資料框時我們使用同樣源於 [`tidyr`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1) 套件的
+[`spread()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/spread) 函數。函數必須要指定幾個參數，第一個是長資料框名稱，而 `key = ` 是用來儲存**數值種類**的欄位名稱，`value = ` 是用來儲存**數值**的欄位名稱：
 
 ```{r}
 spread(df_long, key = cate_col, value = num_col)
@@ -352,7 +342,6 @@ straw_hat_wide_df <- spread(__, key = __, value = __)
 
 # 看看 straw_hat_wide_df 前六列
 
-
 ```
 
 *** =solution
@@ -367,7 +356,6 @@ straw_hat_wide_df <- spread(__, key = __, value = __)
 
 # 看看 straw_hat_wide_df 前六列
 head(straw_hat_wide_df)
-
 ```
 
 *** =sct
@@ -384,5 +372,6 @@ test_object("straw_hat_wide_df",
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `head()` &#20989;&#25976;&#35264;&#23519; `straw_hat_wide_df`&#65311;"
 test_output_contains("head(straw_hat_wide_df)",
                      incorrect_msg = msg)
+
 success_msg("&#24685;&#21916;&#65292;&#20320;&#30340;&#25080;&#36062;&#37329;&#38989;&#24050;&#32147;&#36948;&#21040;&#25976;&#21315;&#33836;&#35997;&#37324;&#20102;&#65281;&#25509;&#19979;&#20358;&#20320;&#35201;&#33322;&#34892;&#21040;&#26368;&#24460;&#19968;&#24231;&#23798;&#23996;&#65292;&#36890;&#36942;&#35430;&#29001;&#20043;&#24460;&#20320;&#23559;&#25104;&#28858;&#25080;&#36062;&#37329;&#38989;&#25976;&#20740;&#35997;&#37324;&#65292;&#35731;&#28023;&#36557;&#38957;&#30171;&#30340;&#36229;&#32026;&#28023;&#36042;&#65281;")
 ```

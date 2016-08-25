@@ -1,7 +1,7 @@
 ---
 title_meta  : 第三章
 title       : 生成衍生變數
-description : 從資料庫或者既有資料的變數有時候並不能滿足我們的分析需求，於是我們常需要生成衍生變數，可能是將類別型變數重新歸類、將數值型變數歸類為類別型變數或者針對數值型變數作計算，我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
+description : 從資料庫查詢得到的結果或者既有資料的變數有時候並不能滿足我們的分析需求，這時我們會需要生成衍生變數，可能是將類別型變數重新歸類、將數值型變數歸類為類別型變數或者針對數值型變數作計算 ... 等，我們將在本章節學習這些技巧，一場爭奪 One Piece 的海上冒險故事！
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:db8d80a572
 ## 類別型變數的分類
@@ -14,9 +14,11 @@ ifelse(test, yes, no)
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
+- 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
 - 我們要把職業是航海士（Navigator）、狙擊手（Sniper）、船醫（Doctor）與考古學家（Archaeologist）的船員指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
+- 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
 ```{r}
@@ -25,14 +27,24 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 *** =sample_code
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$battle_role <- ifelse(straw_hat_df$occupation %in% c("__", "__", "__", "__"), yes = "__", no = "__")
+
+# 將資料框輸出在 R Console
+
 ```
 
 *** =solution
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$battle_role <- ifelse(straw_hat_df$occupation %in% c("Navigator", "Sniper", "Doctor", "Archaeologist"), yes = "Support", no = "Fighter")
+
+# 將資料框輸出在 R Console
+straw_hat_df
 ```
 
 *** =sct
@@ -42,19 +54,24 @@ test_data_frame("straw_hat_df", columns = "battle_role",
                 undefined_cols_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#27491;&#30906;&#29983;&#25104; `battle_role` &#35722;&#25976;&#65311;",
                 incorrect_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#27491;&#30906;&#29983;&#25104; `battle_role` &#35722;&#25976;&#65311;")
 
+test_output_contains("straw_hat_df",
+                     incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
+
 success_msg("&#22826;&#26834;&#20102;&#65292;&#20294;&#20320;&#26377;&#24819;&#36942;&#20551;&#22914;&#25105;&#20497;&#37325;&#26032;&#27512;&#39006;&#19981;&#21482;&#20841;&#31278;&#39006;&#21029;&#65292;&#25033;&#35442;&#24590;&#40636;&#36774;&#65311;")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:4
 ## 類別型變數的分類（2）
 
-在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型態，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
+在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型態，而我們的船醫（Doctor）仍然歸類為輔助型，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
+- 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
 - 我們要把職業是航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）的船員指定為 `battle_role = "Range"`，船醫（Doctor）指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
+- 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
 ```{r}
@@ -63,18 +80,28 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 *** =sample_code
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$battle_role[straw_hat_df$occupation == "__"] <- "Support"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__")] <- "Range"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", "__")] <- "Fighter"
+
+# 將資料框輸出在 R Console
+
 ```
 
 *** =solution
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$battle_role[straw_hat_df$occupation == "Doctor"] <- "Support"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Navigator", "Sniper", "Archaeologist")] <- "Range"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Captain", "Swordsman", "Cook", "Shipwright", "Musician")] <- "Fighter"
+
+# 將資料框輸出在 R Console
+straw_hat_df
 ```
 
 *** =sct
@@ -85,6 +112,9 @@ test_data_frame("straw_hat_df",
                 undefined_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#23559; `straw_hat_df` &#31227;&#38500;&#20102;&#65311;",
                 undefined_cols_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559; `straw_hat_df$battle_role` &#20316;&#20998;&#39006;&#65311;",
                 incorrect_msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559; `straw_hat_df$battle_role` &#20316;&#20998;&#39006;&#65311;")
+
+test_output_contains("straw_hat_df",
+                     incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
 
 success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#20497;&#35201;&#30475;&#30475;&#24590;&#40636;&#23565;&#25976;&#20540;&#22411;&#35722;&#25976;&#36914;&#34892;&#20998;&#39006;&#65281;")
 ```
@@ -100,9 +130,11 @@ df$new_column <- cut(df$column, breaks = c(0, break1, break2, Inf), labels = c("
 
 *** =instructions
 - 新增一個變數 `bounty_level` 將賞金小於 8 千 3 百萬貝里的船員歸類為低，賞金介於 8 千 3 百萬貝里與 1 億 8 千萬貝里之間的船員歸類為中，將賞金高於 1 億 8 千萬貝里的船員歸類為高。
+- 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
 - `cut()` 函數的第一個參數要設為 `straw_hat_df$bounty`，`breaks` 的級距要加入 8 千 3 百萬貝里與 1 億 8 千萬貝里，`labels` 則是要將低、中與高依序放入！
+- 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
 ```{r}
@@ -111,30 +143,46 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 *** =sample_code
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$bounty_level <- cut(straw_hat_df$bounty, breaks = c(0, __, __, Inf), labels = c("__", "__", "__"))
+
+# 將資料框輸出在 R Console
+
 ```
 
 *** =solution
 ```{r}
+# straw_hat_df 已預先載入
+
 # 填入適當的值
 straw_hat_df$bounty_level <- cut(straw_hat_df$bounty, breaks = c(0, 83000000, 180000000, Inf), labels = c("低", "中", "高"))
+
+# 將資料框輸出在 R Console
+straw_hat_df
 ```
 
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `cut()` &#20989;&#25976;&#65311;"
 
-test_function("cut",
-              not_called_msg = msg,
-              args_not_specified_msg = msg,
-              incorrect_msg = msg)
+test_function_result("cut",
+                     not_called_msg = msg,
+                     eval_error_msg = msg,
+                     incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#33337;&#21729;&#20381;&#29031;&#36062;&#37329;&#20998;&#39006;&#28858;&#20302;&#20013;&#39640;&#19977;&#20491;&#32026;&#36317;&#65311;"
 
-test_object("straw_hat_df$gender_binary", 
-            undefined_msg = msg, 
-            incorrect_msg = msg) 
+test_data_frame("straw_hat_df",
+                columns = "bounty_level",
+                eq_condition = "equivalent",
+                undefined_msg = "&#30906;&#35469;&#26159;&#21542;&#23559; `straw_hat_df` &#31227;&#38500;&#20102;&#65311;",
+                undefined_cols_msg = msg,
+                incorrect_msg = msg)
+
+test_output_contains("straw_hat_df",
+                     incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
 
 success_msg("&#21703;&#65292;&#20320;&#24050;&#32147;&#23565;&#33609;&#24125;&#28023;&#36042;&#22296;&#30340;&#25136;&#21147;&#30637;&#33509;&#25351;&#25484;&#65292;&#20294;&#20809;&#26159;&#36889;&#27171;&#36996;&#19981;&#36275;&#20197;&#35731;&#20320;&#36319;&#20182;&#20497;&#30456;&#25239;&#34913;&#65292;&#20320;&#36996;&#38656;&#35201;&#32380;&#32396;&#24375;&#21270;&#25136;&#21147;&#65281;")
 ```
@@ -146,9 +194,11 @@ success_msg("&#21703;&#65292;&#20320;&#24050;&#32147;&#23565;&#33609;&#24125;&#2
 
 *** =instructions
 - 將原本的 `straw_hat_df$bounty` 除以 1,000,000 並指派給一個新資料框變數 `straw_hat_df$bounty_million`。
+- 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
-- 在編輯區鍵入 `straw_hat_df$bounty_million <- straw_hat_df$bounty / 1000000`。
+- 在編輯區輸入 `straw_hat_df$bounty_million <- straw_hat_df$bounty / 1000000`。
+- 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
 ```{r}
@@ -157,14 +207,24 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 
 *** =sample_code
 ```{r}
+# straw_hat_df 已預先載入
+
 # 新增一個以百萬元貝里作為單位的 straw_hat_df$bounty_million
 straw_hat_df$bounty_million <- 
+
+# 將資料框輸出在 R Console
+
 ```
 
 *** =solution
 ```{r}
+# straw_hat_df 已預先載入
+
 # 新增一個以百萬元貝里作為單位的 straw_hat_df$bounty_million
 straw_hat_df$bounty_million <- straw_hat_df$bounty / 1000000
+
+# 將資料框輸出在 R Console
+straw_hat_df
 ```
 
 *** =sct
@@ -173,6 +233,9 @@ msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#23559;&#36062;&
 test_object("straw_hat_df$bounty_million",
             undefined_msg = msg, 
             incorrect_msg = msg) 
+
+test_output_contains("straw_hat_df",
+                     incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
 
 success_msg("&#30495;&#26159;&#22826;&#21426;&#23475;&#20102;&#65292;&#36889;&#19979;&#34893;&#29983;&#35336;&#31639;&#25976;&#20540;&#22411;&#35722;&#25976;&#20063;&#38627;&#19981;&#20498;&#20320;&#20102;&#65281;")
 ```
@@ -206,12 +269,12 @@ as.numeric(format(Sys.Date(), '%Y'))
 - 利用 `as.numeric()` 函數將 `sys_date_year` 轉換為數值並指派給 `sys_date_year_num`。
 
 *** =hint
-- `Sys.Date()` 不需要輸入參數
-- `format()` 函數第二個參數必須指定為 `'%Y'`
+- `Sys.Date()` 不需要輸入參數。
+- `format()` 函數第二個參數必須指定為 `'%Y'`。
 
 *** =pre_exercise_code
 ```{r}
-load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
+# no pec
 ```
 
 *** =sample_code
@@ -237,7 +300,6 @@ sys_date_year <- format(sys_date, '%Y')
 
 # 產生 sys_date_year_num
 sys_date_year_num <- as.numeric(sys_date_year)
-
 ```
 
 *** =sct
@@ -308,7 +370,7 @@ birthday <-
 # 用 sys_date_year_num 減去 age 並指派給 birth_year
 birth_year <- 
 
-# 利用 as.character 將 birth_year 轉換成字元
+# 利用 as.character 將 birth_year 轉換成字元並指派給 birth_year_char
 birth_year_char <- 
 ```
 
@@ -325,7 +387,7 @@ birthday <- straw_hat_df$birthday
 # 用 sys_date_year_num 減去 age 並指派給 birth_year
 birth_year <- sys_date_year_num - age
 
-# 利用 as.character 將 birth_year 轉換成字元
+# 利用 as.character 將 birth_year 轉換成字元並指派給 birth_year_char
 birth_year_char <- as.character(birth_year)
 ```
 
@@ -347,10 +409,10 @@ test_object("birth_year",
             incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#29992; `as.character()` &#23559;&#25976;&#20540;&#36681;&#25563;&#28858;&#23383;&#20803;&#65311;"
-test_function("as.character",
-              not_called_msg = msg,
-              args_not_specified_msg = msg,
-              incorrect_msg = msg)
+test_function_result("as.character",
+                     not_called_msg = msg,
+                     eval_error_msg = msg,
+                     incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#23459;&#21578; `birth_year_char`&#65311;"
 test_object("birth_year_char", 
@@ -372,17 +434,15 @@ char_pasted <- paste(char1, char2, sep = " ")
 注意預設的 `sep = ` 參數是空格，由於西元日期會以 `-` 連接，所以記得要使用 `sep = "-"`。結合好以後我們只需使用 [`as.Date()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/as.Date) 函數將字元轉換成**日期**格式，就可以將這個向量新增至資料框了！
 
 *** =instructions
-```{r}
 - 使用 `paste()` 函數將 `birth_year_char` 與 `birthday` 結合起來，成為 `birth_date_char`。
 - 使用 `as.Date()` 函數將 `birth_date_char` 轉成日期 `birth_date`。
 - 將 `birth_date` 新增至資料框。
-```
+- 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
-```{r}
 - `paste()` 函數的參數記得要設為 `sep = "-"`。
-- 鍵入 `straw_hat_df$birth_date <- birth_date` 就可以完成新增變數。
-```
+- 輸入 `straw_hat_df$birth_date <- birth_date` 就可以完成新增變數。
+- 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
 ```{r}
@@ -406,13 +466,15 @@ rm(birth_year)
 # straw_hat_df 、 birthday 與 birth_year_char 已預先載入
 
 # 結合 birth_year_char 與 birthday
-birth_date_char <- 
+birth_date_char <- paste(__, __, sep = "__")
 
 # 將 birth_date_char 轉成日期 birth_date
 birth_date <- 
 
 # 將 birth_date 新增至資料框
 straw_hat_df$birth_date <- 
+
+# 將資料框輸出在 R Console
 
 ```
 
@@ -428,16 +490,18 @@ birth_date <- as.Date(birth_date_char)
 
 # 將 birth_date 新增至資料框
 straw_hat_df$birth_date <- birth_date
+
+# 將資料框輸出在 R Console
+straw_hat_df
 ```
 
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `paste()` &#20989;&#25976;&#65311;"
-test_function("paste",
-              args = c("x", "sep")
-              not_called_msg = msg,
-              args_not_specified_msg = msg,
-              incorrect_msg = msg)
+test_function_result("paste",
+                     not_called_msg = msg,
+                     eval_error_msg = msg,
+                     incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `paste()` &#20989;&#25976;&#29983;&#25104; `birth_date_char`&#65311;"
 test_object("birth_date_char", 
@@ -445,10 +509,10 @@ test_object("birth_date_char",
             incorrect_msg = msg)
             
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `as.Date()` &#20989;&#25976;&#65311;"
-test_function("as.Date",
-              not_called_msg = msg,
-              args_not_specified_msg = msg,
-              incorrect_msg = msg)
+test_function_result("as.Date",
+                     not_called_msg = msg,
+                     eval_error_msg = msg,
+                     incorrect_msg = msg)
               
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `as.Date()` &#20989;&#25976;&#29983;&#25104; `birth_date`&#65311;"
 test_object("birth_date", 
@@ -459,6 +523,9 @@ msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#25104;&#21151;&#23559; `birth_d
 test_object("straw_hat_df$birth_date", 
             undefined_msg = msg, 
             incorrect_msg = msg)
+
+test_output_contains("straw_hat_df",
+                     incorrect_msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_df` &#36664;&#20986;&#22312; R Console&#65311;")
 
 success_msg("&#33021;&#22816;&#23436;&#25104;&#36889;&#20491;&#31995;&#21015;&#30340;&#32244;&#32722;&#20320;&#30495;&#30340;&#26159;&#22826;&#19981;&#31777;&#21934;&#20102;&#65292;&#30475;&#20358;&#20320;&#24456;&#26377;&#28507;&#21147;&#25104;&#28858;&#33609;&#24125;&#28023;&#36042;&#22296;&#30340;&#31532;&#21313;&#20491;&#22821;&#20276;&#65281;")
 ```

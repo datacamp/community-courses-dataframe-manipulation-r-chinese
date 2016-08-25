@@ -153,8 +153,8 @@ df[order(df$col, decreasing = FALSE)]
 - 用 `bounty` 遞減排序草帽海賊團資料框。
 
 *** =hint
-- `decreasing = ` 設為 `FALSE` 或者不指定參數沿用預設。
-- `decreasing = ` 設為 `TRUE`。
+- 用 `height` 遞增排序時 `decreasing = ` 設為 `FALSE` 或者不指定參數沿用預設。
+- 用 `bounty` 遞減排序時 `decreasing = ` 設為 `TRUE`。
 
 *** =pre_exercise_code
 ```{r}
