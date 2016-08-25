@@ -119,7 +119,7 @@ test_object("favorite_food",
             undefined_msg = msg, 
             incorrect_msg = msg) 
 
-msg = ""&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;""               
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;"              
 test_function_result("cbind",
                      not_called_msg = msg,
                      incorrect_msg = msg)
