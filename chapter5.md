@@ -372,7 +372,7 @@ test_output_contains("luffy_event",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `merge()` &#20989;&#25976;&#29983;&#25104; `luffy_bounty`&#65311;"
-test_object(name, 
+test_object("luffy_bounty", 
             undefined_msg = msg, 
             incorrect_msg = msg)
 
