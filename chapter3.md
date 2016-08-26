@@ -346,7 +346,7 @@ vector1 <- df$col1
 - 輸入 `age <- straw_hat_df$age` 與 `birthday <- straw_hat_df$birthday` 將需要計算的欄位獨立出來。
 - 記得使用 `as.character()` 函數。
 
-*** =pre_exerise_code
+*** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 sys_date <- Sys.Date()
