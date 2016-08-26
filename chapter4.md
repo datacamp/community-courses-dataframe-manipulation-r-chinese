@@ -86,7 +86,7 @@ msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23565; `straw_hat_df$bounty` &#
 test_output_contains("sd(straw_hat_df$bounty)",
                      incorrect_msg = msg)
 
-sucess_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22296;&#30340;&#25080;&#36062;&#37329;&#38989;&#36889;&#40636;&#39640;&#65292;&#20320;&#26377;&#27794;&#26377;&#35258;&#24471;&#36996;&#26159;&#19981;&#35201;&#25307;&#24825;&#20182;&#20497;&#22909;&#20102;&#21602;&#65311;")
+success_msg("&#30475;&#21040;&#33609;&#24125;&#28023;&#36042;&#22296;&#20840;&#22296;&#30340;&#25080;&#36062;&#37329;&#38989;&#36889;&#40636;&#39640;&#65292;&#20320;&#26377;&#27794;&#26377;&#35258;&#24471;&#36996;&#26159;&#19981;&#35201;&#25307;&#24825;&#20182;&#20497;&#22909;&#20102;&#21602;&#65311;")
 ```
 
 --- type:NormalExercise lang:r xp:100 skills:4 key:077f2d637a
@@ -172,15 +172,15 @@ test_output_contains("head(straw_hat_df)",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `ddply()` &#20989;&#25976;&#20381;&#25818; `gender` &#35336;&#31639;&#21508;&#24615;&#21029;&#30340;&#24179;&#22343;&#36523;&#39640;&#65311;"
-test_output_contains("ddply(straw_hat_df, .variables = "gender", .fun = summarise, avg_height = mean(height))",
+test_output_contains("ddply(straw_hat_df, .variables = \"gender\", .fun = summarise, avg_height = mean(height))",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `ddply()` &#20989;&#25976;&#20381;&#25818; `battle_role` &#35336;&#31639;&#21508;&#25136;&#39717;&#35282;&#33394;&#30340;&#21152;&#32317;&#36062;&#37329;&#65311;"
-test_output_contains("ddply(straw_hat_df, .variables = "battle_role", .fun = summarise, ttl_bounty = sum(bounty))",
+test_output_contains("ddply(straw_hat_df, .variables = \"battle_role\", .fun = summarise, ttl_bounty = sum(bounty))",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `ddply()` &#20989;&#25976;&#20381;&#25818; `gender` &#33287; `battle_role` &#35336;&#31639;&#24179;&#22343;&#36523;&#39640;&#33287;&#21152;&#32317;&#36062;&#37329;&#65311;"
-test_output_contains("ddply(straw_hat_df, .variables = c("gender", "battle_role"), .fun = summarise, avg_height = mean(height), ttl_bounty = sum(bounty))",
+test_output_contains("ddply(straw_hat_df, .variables = c(\"gender\", \"battle_role\"), .fun = summarise, avg_height = mean(height), ttl_bounty = sum(bounty))",
                      incorrect_msg = msg)
 
 success_msg("&#21703;&#65292;&#33021;&#22816;&#23436;&#25104;&#21040;&#36889;&#35041;&#30495;&#30340;&#24456;&#19981;&#31777;&#21934;&#65281;&#26377;&#36889;&#27171;&#30340;&#23526;&#21147;&#25105;&#30456;&#20449;&#20320;&#30495;&#30340;&#26159;&#36229;&#26032;&#26143;&#19990;&#20195;&#30340;&#20854;&#20013;&#19968;&#21729;&#12290;&#25105;&#20497;&#20677;&#20677;&#20171;&#32057;&#20102; `plyr` &#22871;&#20214;&#20013;&#30340;&#19968;&#20491; `ddply()` &#20989;&#25976;&#65292;&#23427;&#35041;&#38957;&#24456;&#26377;&#24456;&#22810;&#20540;&#24471;&#20320;&#33457;&#26178;&#38291;&#21435;&#30740;&#31350;&#30340;&#20989;&#25976;&#65281;")
@@ -195,7 +195,7 @@ success_msg("&#21703;&#65292;&#33021;&#22816;&#23436;&#25104;&#21040;&#36889;&#3
 
 進行寬資料框變為長資料框時我們需要使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數，它不是 R 語言的原生函數，而是源自於一個套件 [`tidyr`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1)
 
-*** =instruction
+*** =instructions
 - 載入 `tidyr` 套件。
 - 建立一個新的資料框 `straw_hat_wide_df` 僅包含姓名、年齡與身高這三個欄位。
 
@@ -252,7 +252,7 @@ success_msg("&#22909;&#65292;&#29105;&#36523;&#23436;&#30050;&#20102;&#65281;&#2
 gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
 ```
 
-*** =instruction
+*** =instructions
 - 使用 `gather()` 函數把上一個練習生成的 `straw_hat_wide_df` 轉置為 `straw_hat_long_df`。
 - 使用 `head()` 函數看看生成的資料框。
 
@@ -314,7 +314,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#24050;&#32147;&#2
 spread(df_long, key = cate_col, value = num_col)
 ```
 
-*** =instruction
+*** =instructions
 - 使用 `head()` 函數看看 `straw_hat_long_df`
 - 使用 `spread()` 函數把上一個練習生成的 `straw_hat_long_df` 轉置為 `straw_hat_wide_df`。
 - 使用 `head()` 函數看看生成的資料框。
@@ -325,9 +325,9 @@ spread(df_long, key = cate_col, value = num_col)
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
+library(tidyr)
 straw_hat_wide_df <- straw_hat_df[, c("name", "age", "bounty", "height")]
 straw_hat_long_df <- gather(straw_hat_wide_df, key = cate, value = int, height, age)
-library(tidyr)
 ```
 
 *** =sample_code
@@ -352,7 +352,7 @@ straw_hat_wide_df <- spread(__, key = __, value = __)
 head(straw_hat_long_df)
 
 # 轉置
-straw_hat_wide_df <- spread(__, key = __, value = __)
+straw_hat_wide_df <- spread(straw_hat_long_df, key = cate, value = int)
 
 # 看看 straw_hat_wide_df 前六列
 head(straw_hat_wide_df)

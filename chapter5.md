@@ -8,7 +8,7 @@ description : 在一個資料分析專案中，資料可能散落在多個資料
 
 **惡魔果實**是海賊王世界的奇特果實，有「海上惡魔的化身」的別稱，可以讓食用者得到特殊能力，擁有惡魔果實的人普遍被叫作「惡魔果實能力者」。在草帽海賊團中有 4 個能力者，但你注意到我們並沒有一個欄位紀錄船員的惡魔果實資訊，於是你駭入海軍的機密資料庫取得了草帽海賊團的惡魔果實資料 `straw_hat_devil_fruit`。
 
-*** =instruction
+*** =instructions
 - 將草帽海賊團的惡魔果實資料框輸出在 R Console。
 
 *** =hint
@@ -56,7 +56,7 @@ merge(df1, df2, by = col_name, ...)
 
 輸出的結果會保留兩個資料框中有參照到的觀測值，這就是俗稱的**內部聯結**！
 
-*** =instruction
+*** =instructions
 - 使用 `merge()` 函數聯結 `straw_hat_df` 與 `straw_hat_devil_fruit`，將聯結後資料框宣告為 `straw_hat_df_devil_fruit`。
 - 將 `straw_hat_df_devil_fruit` 輸出在 R Console。
 
@@ -118,7 +118,7 @@ merge(df1, df2, all.x = TRUE)
 
 輸出的結果會保留第一個資料框中的所有觀測值，而參照不到惡魔果實的船員會以遺漏值記錄，這就是俗稱的**左外部聯結**！
 
-*** =instruction
+*** =instructions
 - 使用 `merge()` 函數將 `straw_hat_df` 與 `straw_hat_devil_fruit` 進行左外部聯結，將聯結後資料框宣告為 `straw_hat_df_devil_fruit`。
 - 將 `straw_hat_df_devil_fruit` 輸出在 R Console。
 
@@ -178,7 +178,7 @@ merge(df1, df2, all.y = TRUE)
 
 為了展示**右外部聯結**的效果，我們稍微修改了第一個資料框 `straw_hat_df` 留下四個船員的角色設定，兩個能力者與兩個非能力者。輸出的結果會保留第二個資料框中的所有觀測值，而參照不到主要角色設定的惡魔果實能力者欄位會以遺漏值記錄，這就是俗稱的**右外部聯結**！
 
-*** =instruction
+*** =instructions
 - 先將修改後的 `straw_hat_df` 輸出在 R Console 看看。
 - 使用 `merge()` 函數將 `straw_hat_df` 與 `straw_hat_devil_fruit` 進行右外部聯結，將聯結後資料框宣告為 `straw_hat_df_devil_fruit`。
 - 將 `straw_hat_df_devil_fruit` 輸出在 R Console。
@@ -248,7 +248,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#36996;&#24046;&#19968;&#20491;&#3
 merge(df1, df2, all.x = TRUE, all.y = TRUE)
 ```
 
-*** =instruction
+*** =instructions
 - 先將修改後的 `straw_hat_df` 輸出在 R Console 看看。
 - 使用 `merge()` 函數將 `straw_hat_df` 與 `straw_hat_devil_fruit` 進行全外部聯結，將聯結後資料框宣告為 `straw_hat_df_devil_fruit`。
 - 將 `straw_hat_df_devil_fruit` 輸出在 R Console。
@@ -317,7 +317,7 @@ success_msg("&#24685;&#21916;&#20320;&#65292;&#20320;&#24050;&#32147;&#25104;&#2
 merge(df1, df2, by = c("col1", "col2", ...))
 ```
 
-*** =instruction
+*** =instructions
 - 將 `luffy_event` 與 `luffy_event_bounty` 輸出在 R Console 看看。
 - 將 `luffy_event` 與 `luffy_event_bounty` 內部聯結產出 `luffy_bounty`。
 - 將 `luffy_bounty` 輸出在 R Console 看看。
@@ -393,7 +393,7 @@ library(sqldf)
 sqldf("your sql query here...")
 ```
 
-*** =instruction
+*** =instructions
 - 完成第一個 SQL 查詢將草帽海賊團賞金高於 1 億貝里的船員選出來，並指派給一個資料框 `straw_hat_high_bounty`。
 - 將 `straw_hat_high_bounty` 輸出在 R Console。
 - 完成第二個 SQL 查詢將角色設定與惡魔果實資料框做**左外部聯結** （LEFT JOIN），並指派給一個資料框 `straw_hat_df_devil_fruit`。
