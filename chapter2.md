@@ -119,10 +119,14 @@ test_object("favorite_food",
             undefined_msg = msg, 
             incorrect_msg = msg) 
 
-msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;"              
-#test_function_result("cbind",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `cbind()` &#20989;&#25976;&#65311;"
+test_function("cbind",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#26368;&#21916;&#24859;&#26009;&#29702;&#30340;&#21521;&#37327;&#21152;&#20837;&#36039;&#26009;&#26694;&#20013;&#25104;&#28858;&#26032;&#30340;&#27396;&#20301;&#65311;"
 test_data_frame("straw_hat_df",
@@ -237,9 +241,13 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#27491;&#30906;&#22320;&#20351;&#29992; `subset()` &#20989;&#25976;&#65311;"
-#test_function_result("subset",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+test_function("subset",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#20351;&#29992; `subset()` &#20989;&#25976;&#21034;&#38500;&#20102;&#32887;&#26989;&#33287;&#36523;&#39640;&#20841;&#20491;&#27396;&#20301;&#65311;"
 test_object("straw_hat_df",
@@ -418,10 +426,13 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `rbind()` &#20989;&#25976;&#65311;"
-        
-#test_function_result("rbind",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+test_function("rbind",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#34183;&#34183;&#20844;&#20027;&#21152;&#20837;&#33609;&#24125;&#28023;&#36042;&#22296;&#36039;&#26009;&#26694;&#65311;"
                

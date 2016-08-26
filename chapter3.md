@@ -166,13 +166,15 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `cut()` &#20989;&#25976;&#65311;"
-
-#test_function_result("cut",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+test_function("cut",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559;&#33337;&#21729;&#20381;&#29031;&#36062;&#37329;&#20998;&#39006;&#28858;&#20302;&#20013;&#39640;&#19977;&#20491;&#32026;&#36317;&#65311;"
-
 test_data_frame("straw_hat_df",
                 columns = "bounty_level",
                 eq_condition = "equivalent",
@@ -406,9 +408,13 @@ test_object("birth_year",
             incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#29992; `as.character()` &#23559;&#25976;&#20540;&#36681;&#25563;&#28858;&#23383;&#20803;&#65311;"
-#test_function_result("as.character",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+test_function("as.character",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#23459;&#21578; `birth_year_char`&#65311;"
 test_object("birth_year_char", 
@@ -494,9 +500,13 @@ straw_hat_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `paste()` &#20989;&#25976;&#65311;"
-#test_function_result("paste",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
+test_function("paste",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `paste()` &#20989;&#25976;&#29983;&#25104; `birth_date_char`&#65311;"
 test_object("birth_date_char", 
@@ -504,10 +514,14 @@ test_object("birth_date_char",
             incorrect_msg = msg)
             
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; `as.Date()` &#20989;&#25976;&#65311;"
-#test_function_result("as.Date",
-                     not_called_msg = msg,
-                     incorrect_msg = msg)
-              
+test_function("as.Date",
+              args = NULL, index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = NULL,
+              incorrect_msg = msg)
+
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `as.Date()` &#20989;&#25976;&#29983;&#25104; `birth_date`&#65311;"
 test_object("birth_date", 
             undefined_msg = msg, 
