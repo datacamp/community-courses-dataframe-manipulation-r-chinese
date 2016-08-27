@@ -243,7 +243,7 @@ gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
 
 *** =instructions
 - 使用 `gather()` 函數把上一個練習生成的 `straw_hat_wide_df` 轉置為 `straw_hat_long_df`。
-- 使用 `head()` 函數看看生成的資料框。
+- 把 `straw_hat_long_df` 輸出在 R Console 看看。
 
 *** =hint
 - `gather()` 函數的參數要指派 `straw_hat_wide_df, key = cate, value = int, height, age`
@@ -251,7 +251,7 @@ gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
 *** =pre_exercise_code
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
-straw_hat_wide_df <- straw_hat_df[, c("name", "age", "bounty", "height")]
+straw_hat_wide_df <- straw_hat_df[, c("name", "age", "height")]
 library(tidyr)
 ```
 
@@ -262,7 +262,7 @@ library(tidyr)
 # 轉置
 straw_hat_long_df <- gather(__, key = __, value = __, __, __)
 
-# 看看 straw_hat_long_df 前六列
+# 將資料框輸出在 R Console
 
 ```
 
@@ -273,8 +273,8 @@ straw_hat_long_df <- gather(__, key = __, value = __, __, __)
 # 轉置
 straw_hat_long_df <- gather(straw_hat_wide_df, key = cate, value = int, height, age)
 
-# 看看 straw_hat_long_df 前六列
-head(straw_hat_long_df)
+# 將資料框輸出在 R Console
+straw_hat_long_df
 ```
 
 *** =sct
@@ -284,8 +284,8 @@ test_object("straw_hat_long_df",
             undefined_msg = msg, 
             incorrect_msg = msg) 
 
-msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `head()` &#20989;&#25976;&#30475;&#30475;&#29983;&#25104;&#30340; `straw_hat_long_df`&#65311;"
-test_output_contains("head(straw_hat_long_df)",
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_long_df` &#36664;&#20986;&#22312; R Console&#65311;"
+test_output_contains("straw_hat_long_df",
                      incorrect_msg = msg)
 
 success_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#24050;&#32147;&#23416;&#26371;&#20102;&#23532;&#36039;&#26009;&#26694;&#35722;&#38263;&#36039;&#26009;&#26694;&#65292;&#25509;&#33879;&#20358;&#23416;&#24590;&#40636;&#25226;&#38263;&#36039;&#26009;&#26694;&#35722;&#25104;&#23532;&#36039;&#26009;&#26694;&#65281;")
@@ -304,9 +304,9 @@ spread(df_long, key = cate_col, value = num_col)
 ```
 
 *** =instructions
-- 使用 `head()` 函數看看 `straw_hat_long_df`
+- 把 `straw_hat_long_df` 輸出在 R Console 看看。
 - 使用 `spread()` 函數把上一個練習生成的 `straw_hat_long_df` 轉置為 `straw_hat_wide_df`。
-- 使用 `head()` 函數看看生成的資料框。
+- 把 `straw_hat_wide_df` 輸出在 R Console 看看。
 
 *** =hint
 - `spread()` 函數的參數要指派 `straw_hat_wide_df, key = cate, value = int`
@@ -315,7 +315,7 @@ spread(df_long, key = cate_col, value = num_col)
 ```{r}
 load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/datasets/straw_hat_df.RData"))
 library(tidyr)
-straw_hat_wide_df <- straw_hat_df[, c("name", "age", "bounty", "height")]
+straw_hat_wide_df <- straw_hat_df[, c("name", "age", "height")]
 straw_hat_long_df <- gather(straw_hat_wide_df, key = cate, value = int, height, age)
 ```
 
@@ -323,13 +323,13 @@ straw_hat_long_df <- gather(straw_hat_wide_df, key = cate, value = int, height, 
 ```{r}
 # straw_hat_long_df 、 tidyr 已預先載入
 
-# 看 straw_hat_long_df 前六列
+# 將 straw_hat_long_df 輸出在 R Console看看
 
 
 # 轉置
 straw_hat_wide_df <- spread(__, key = __, value = __)
 
-# 看看 straw_hat_wide_df 前六列
+# 將 straw_hat_wide_df 輸出在 R Console看看
 
 ```
 
@@ -337,20 +337,20 @@ straw_hat_wide_df <- spread(__, key = __, value = __)
 ```{r}
 # straw_hat_long_df 、 tidyr 已預先載入
 
-# 看 straw_hat_long_df 前六列
-head(straw_hat_long_df)
+# 將 straw_hat_long_df 輸出在 R Console看看
+straw_hat_long_df
 
 # 轉置
 straw_hat_wide_df <- spread(straw_hat_long_df, key = cate, value = int)
 
-# 看看 straw_hat_wide_df 前六列
-head(straw_hat_wide_df)
+# 將 straw_hat_wide_df 輸出在 R Console看看
+straw_hat_wide_df
 ```
 
 *** =sct
 ```{r}
-msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `head()` &#20989;&#25976;&#35264;&#23519; `straw_hat_long_df`&#65311;"
-test_output_contains("head(straw_hat_long_df)",
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_long_df` &#36664;&#20986;&#22312; R Console&#65311;"
+test_output_contains("straw_hat_long_df",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `spread()` &#20989;&#25976;&#23559;&#23532;&#36039;&#26009;&#26694;&#36681;&#25563;&#25104;&#38263;&#36039;&#26009;&#26694; `straw_hat_wide_df`&#65311;"
@@ -358,8 +358,8 @@ test_object("straw_hat_wide_df",
             undefined_msg = msg, 
             incorrect_msg = msg) 
 
-msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `head()` &#20989;&#25976;&#35264;&#23519; `straw_hat_wide_df`&#65311;"
-test_output_contains("head(straw_hat_wide_df)",
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_wide_df` &#36664;&#20986;&#22312; R Console&#65311;"
+test_output_contains("straw_hat_wide_df",
                      incorrect_msg = msg)
 
 success_msg("&#24685;&#21916;&#65292;&#20320;&#30340;&#25080;&#36062;&#37329;&#38989;&#24050;&#32147;&#36948;&#21040;&#25976;&#21315;&#33836;&#35997;&#37324;&#20102;&#65281;&#25509;&#19979;&#20358;&#20320;&#35201;&#33322;&#34892;&#21040;&#26368;&#24460;&#19968;&#24231;&#23798;&#23996;&#65292;&#36890;&#36942;&#35430;&#29001;&#20043;&#24460;&#20320;&#23559;&#25104;&#28858;&#25080;&#36062;&#37329;&#38989;&#25976;&#20740;&#35997;&#37324;&#65292;&#35731;&#28023;&#36557;&#38957;&#30171;&#30340;&#36229;&#32026;&#28023;&#36042;&#65281;")
