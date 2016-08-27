@@ -335,7 +335,7 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 ```{r}
 # luffy_event_bounty 與 luffy_event 都已預先載入
 
-# 將 `luffy_event_bounty` 與 `luffy_event` 輸出在 R Console
+# 將 luffy_event_bounty 與 luffy_event 輸出在 R Console
 
 
 
@@ -350,7 +350,7 @@ luffy_bounty <-
 ```{r}
 # luffy_event_bounty 與 luffy_event 都已預先載入
 
-# 將 `luffy_event_bounty` 與 `luffy_event` 輸出在 R Console
+# 將 luffy_event_bounty 與 luffy_event 輸出在 R Console
 luffy_event_bounty
 luffy_event
 

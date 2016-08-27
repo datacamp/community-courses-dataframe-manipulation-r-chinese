@@ -193,15 +193,11 @@ success_msg("&#21703;&#65292;&#33021;&#22816;&#23436;&#25104;&#21040;&#36889;&#3
 
 我們首先介紹如何將一個寬資料框變為長資料框，你記得在草帽海賊團資料框中，我們有 2 個整數欄位嗎？它們分別是 `age` 和 `height`，但你有想過這是我們儲存資料的唯一方法嗎？我們可以改用一個類別欄位儲存數值的種類以及一個數值欄位儲存數值，如此一來不管有多少個數值，我們都可以用兩個欄位儲存！
 
-進行寬資料框變為長資料框時我們需要使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數，它不是 R 語言的原生函數，而是源自於一個套件 [`tidyr`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1)
-
 *** =instructions
-- 載入 `tidyr` 套件。
 - 建立一個新的資料框 `straw_hat_wide_df` 僅包含姓名、年齡與身高這三個欄位。
 
 *** =hint
-- 使用 `library()` 載入 `tidyr`。
-- 可以使用 `[, c("name", "age", "bounty", "height")]` 將欄位選出來。
+- 可以使用 `[, c("name", "age", "height")]` 將欄位選出來。
 
 *** =pre_exercise_code
 ```{r}
@@ -212,9 +208,6 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 ```{r}
 # straw_hat_df 已預先載入
 
-# 載入 tidyr 套件
-
-
 # 建立一個新的資料框 straw_hat_wide_df 僅包含姓名、年齡與身高
 straw_hat_wide_df <- 
 ```
@@ -223,18 +216,12 @@ straw_hat_wide_df <-
 ```{r}
 # straw_hat_df 已預先載入
 
-# 載入 tidyr 套件
-library(tidyr)
-
 # 建立一個新的資料框 straw_hat_wide_df 僅包含姓名、年齡與身高
-straw_hat_wide_df <- straw_hat_df[, c("name", "age", "bounty", "height")]
+straw_hat_wide_df <- straw_hat_df[, c("name", "age", "height")]
 ```
+
 *** =sct
 ```{r}
-msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#36617;&#20837; `tidyr` &#22871;&#20214;&#65311;"
-test_output_contains("library(tidyr)",
-                     incorrect_msg = msg)
-
 msg = "&#30906;&#35469;&#20320;&#26159;&#21542;&#26377;&#29986;&#29983; `straw_hat_wide_df` &#20006;&#21253;&#21547;&#22995;&#21517;&#12289;&#24180;&#40801;&#33287;&#36523;&#39640;&#36889;&#19977;&#20491;&#27396;&#20301;&#65311;"
 test_object("straw_hat_wide_df",
             undefined_msg = msg, 
@@ -246,7 +233,9 @@ success_msg("&#22909;&#65292;&#29105;&#36523;&#23436;&#30050;&#20102;&#65281;&#2
 --- type:NormalExercise lang:r xp:100 skills:4 key:45945ea8ab
 ## 資料轉置：寬變長（2）
 
-接著我們使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數來把寬資料框變為長資料框，[gather()](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數必須要指定幾個參數，第一個是寬資料框名稱，而 `key = ` 是轉置後用來儲存**數值種類**的欄位名稱，`value = ` 是轉置後用來儲存**數值**的欄位名稱。後面則輸入需要被轉置的原始欄位名稱 :
+進行寬資料框變為長資料框時我們需要使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數，它不是 R 語言的原生函數，而是源自於一個套件 [`tidyr`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1)。
+
+接著我們使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數來把寬資料框變為長資料框，[`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數必須要指定幾個參數，第一個是寬資料框名稱，而 `key = ` 是轉置後用來儲存**數值種類**的欄位名稱，`value = ` 是轉置後用來儲存**數值**的欄位名稱。後面則輸入需要被轉置的原始欄位名稱 :
 
 ```{r}
 gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
