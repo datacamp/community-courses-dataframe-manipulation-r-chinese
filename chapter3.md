@@ -65,14 +65,14 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#20294;&#20320;&#26377;&#24819;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:ec549da7b3
 ## 類別型變數的分類（2）
 
-在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型（Range），而我們的船醫（Doctor）仍然歸類為輔助型（Support），原本歸類為戰鬥型（Fighter）的船員不變，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
+在輔助型戰鬥角色中，其實可以再將狙擊手（Sniper）另外歸類為遠距攻擊型（Range），而我們的船醫（Doctor）、考古學家（Archaeologist）與航海士（Navigator）仍然歸類為輔助型（Support），原本歸類為戰鬥型（Fighter）的船員不變，如此一來我們的類別會達到三種，這時我們採用向量索引值進行歸類。
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
 - 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
-- 我們要把職業是狙擊手（Sniper）與考古學家（Archaeologist）的船員指定為 `battle_role = "Range"`，航海士（Navigator）與船醫（Doctor）的船員指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
+- 我們要把職業是狙擊手（Sniper）與的船員指定為 `battle_role = "Range"`，職業是船醫（Doctor）、考古學家（Archaeologist）與航海士（Navigator）的船員指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
 - 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
@@ -85,8 +85,8 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 # straw_hat_df 已預先載入
 
 # 填入適當的值
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__")] <- "Support"
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation == c("__")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__")] <- "Support"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", "__")] <- "Fighter"
 
 # 將資料框輸出在 R Console
@@ -98,8 +98,8 @@ straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", 
 # straw_hat_df 已預先載入
 
 # 填入適當的值
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Doctor", "Navigator")] <- "Support"
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Sniper", "Archaeologist")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation == "Sniper"] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Doctor", "Archaeologist", "Navigator")] <- "Support"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Captain", "Swordsman", "Cook", "Shipwright", "Musician")] <- "Fighter"
 
 # 將資料框輸出在 R Console
