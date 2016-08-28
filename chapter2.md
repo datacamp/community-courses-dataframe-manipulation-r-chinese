@@ -263,7 +263,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#38500;&#20102;&#21487;&#20197;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:ccfe68db30
 ## 為欄位重新命名
 
-R 語言可以使用 [`names()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/names) 函數將資料框的欄位名稱用向量的格式輸出：
+R 語言可以使用 [`names()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/names) 函數將資料框的「變數名稱」以向量的型態輸出：
 
 ```{r}
 names(df)

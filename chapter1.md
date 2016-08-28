@@ -89,7 +89,7 @@ success_msg("&#20320;&#20570;&#24471;&#22826;&#26834;&#20102;&#65292;&#35731;&#2
 - [`str()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數
 - [`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數
 
-[`dim()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[`head()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[`tail()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[`str()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會回傳資料框的列數與欄數，還會列出每個欄位的資料類型以及前幾個觀測值；[`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳每個欄位的敘述性統計資料。
+[`dim()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/dim) 函數會回傳資料框的列數與欄數；[`head()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的前六列；[`tail()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/head) 函數會回傳資料框的後六列；[`str()`](http://www.rdocumentation.org/packages/utils/versions/3.3.1/topics/str) 函數不僅會列出資料框的觀察值個數與變數個數，還會列出每個欄位的資料類型以及前幾個觀測值；[`summary()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/summary) 函數會回傳量值型變數的敘述性統計資料，以及類別型變數的屬性資料。
 
 *** =instructions
 - 使用這 5 個好用的函數探索已經載入工作環境的 `straw_hat_df`。

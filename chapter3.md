@@ -6,11 +6,13 @@ description : 從資料庫查詢得到的結果或者既有資料的變數有時
 --- type:NormalExercise lang:r xp:100 skills:4 key:db8d80a572
 ## 類別型變數的分類
 
-雖然草帽海賊團每個船員都有獨立作戰的能力，但交戰仍然區分為兩種類型：輔助型與戰鬥型。具體而言，我們的航海士（Navigator）、狙擊手（Sniper）、船醫（Doctor）與考古學家（Archaeologist）是屬於輔助型，其餘船員則不意外是屬於戰鬥型。我們要多加一個欄位紀錄船員們的戰鬥類型 `battle_role`，這樣的二元重新分類可以善用 [`ifelse()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/ifelse) 函數，讓我們來練習看看！
+雖然草帽海賊團每個船員都有獨立作戰的能力，但交戰仍然區分為兩種類型：輔助型與戰鬥型。具體而言，我們的航海士（Navigator）、狙擊手（Sniper）、船醫（Doctor）與考古學家（Archaeologist）是屬於輔助型（Support），其餘船員則不意外是屬於戰鬥型（Fighter）。我們要多加一個欄位紀錄船員們的戰鬥類型 `battle_role`，這樣的二元重新分類可以善用 [`ifelse()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/ifelse) 函數，讓我們來練習看看！
 
 ```{r}
 ifelse(test, yes, no)
 ```
+
+在對比文字時我們使用一個特殊的運算子符號 `%in%`，如果運算子左方的文字有出現在右方的向量中，就會回傳 `TRUE` 反之則回傳 `FALSE`。
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
@@ -63,14 +65,14 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#20294;&#20320;&#26377;&#24819;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:ec549da7b3
 ## 類別型變數的分類（2）
 
-在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型態，而我們的船醫（Doctor）仍然歸類為輔助型，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
+在輔助型戰鬥角色中，其實可以再將航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）歸類為遠距攻擊型（Range），而我們的船醫（Doctor）仍然歸類為輔助型（Support），原本歸類為戰鬥型（Fighter）的船員不變，如此一來我們的類別會達到三種，這時我們可以採用向量索引值進行歸類。
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
 - 把 `straw_hat_df` 輸出在 R Console 看看。
 
 *** =hint
-- 我們要把職業是航海士（Navigator）、狙擊手（Sniper）與考古學家（Archaeologist）的船員指定為 `battle_role = "Range"`，船醫（Doctor）指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
+- 我們要把職業是狙擊手（Sniper）與考古學家（Archaeologist）的船員指定為 `battle_role = "Range"`，航海士（Navigator）與船醫（Doctor）的船員指定為 `battle_role = "Support"`，其餘指定為 `battle_role = "Fighter"`。
 - 在編輯區輸入 `straw_hat_df`。
 
 *** =pre_exercise_code
@@ -83,8 +85,8 @@ load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_1570/dat
 # straw_hat_df 已預先載入
 
 # 填入適當的值
-straw_hat_df$battle_role[straw_hat_df$occupation == "__"] <- "Support"
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__")] <- "Support"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__")] <- "Range"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", "__")] <- "Fighter"
 
 # 將資料框輸出在 R Console
@@ -96,8 +98,8 @@ straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", 
 # straw_hat_df 已預先載入
 
 # 填入適當的值
-straw_hat_df$battle_role[straw_hat_df$occupation == "Doctor"] <- "Support"
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Navigator", "Sniper", "Archaeologist")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Doctor", "Navigator")] <- "Support"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c(Sniper", "Archaeologist")] <- "Range"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Captain", "Swordsman", "Cook", "Shipwright", "Musician")] <- "Fighter"
 
 # 將資料框輸出在 R Console
@@ -127,6 +129,8 @@ success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#2
 ```{r}
 df$new_column <- cut(df$column, breaks = c(0, break1, break2, Inf), labels = c("label1", "label2", "label3"))
 ```
+
+其中 `breaks` 參數設定必須要有一個最小值與最大值，範例中是指介於 `0 - break1` 的數值歸類為 `label1`，介於 `break1 - break2` 的數值歸類為 `label2`，而介於 `break2 - Inf` 的數值歸類為 `label3`，`Inf` 在 R 語言中是無限大的數值，你可以在 R Console 中輸入 `class(Inf)` 來驗證。
 
 *** =instructions
 - 新增一個變數 `bounty_level` 將賞金小於 8 千 3 百萬貝里的船員歸類為 `"Low"`，賞金介於 8 千 3 百萬貝里與 1 億 8 千萬貝里之間的船員歸類為 `"Medium"`，將賞金高於 1 億 8 千萬貝里的船員歸類為 `"High"`。
