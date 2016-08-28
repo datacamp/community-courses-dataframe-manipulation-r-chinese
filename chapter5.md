@@ -49,7 +49,7 @@ success_msg("&#23565;&#20320;&#36889;&#20301;&#34987;&#25976;&#21315;&#33836;&#3
 現在你手邊已經取得了 `straw_hat_devil_fruit`，接著你想要把惡魔果實的資訊加入原本的資料框中。R 語言使用 [`merge()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/merge) 函數來進行資料框的聯結，如果你沒有使用過關聯式資料資料庫，你可以想像一下 Excel 的 vlookup 函數功能。
 
 ```{r}
-merge(df1, df2, by = col_name, ...)
+merge(df1, df2, by = "foreign_key_column", ...)
 ```
 
 `by = ` 參數要指定兩個資料框參照的欄位，由於我們的資料框要參照的欄位名稱是相同的： `name`，因此在使用 [`merge()`](http://www.rdocumentation.org/packages/base/versions/3.3.1/topics/merge) 函數時不需要指定 `by = ` 參數。

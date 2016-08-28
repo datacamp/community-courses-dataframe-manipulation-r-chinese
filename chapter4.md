@@ -238,7 +238,7 @@ success_msg("&#22909;&#65292;&#29105;&#36523;&#23436;&#30050;&#20102;&#65281;&#2
 接著我們使用 [`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數來把寬資料框變為長資料框，[`gather()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/gather) 函數必須要指定幾個參數，第一個是寬資料框名稱，而 `key = ` 是轉置後用來儲存**數值種類**的欄位名稱，`value = ` 是轉置後用來儲存**數值**的欄位名稱。後面則輸入需要被轉置的原始欄位名稱 :
 
 ```{r}
-gather(df_wide, key = cate_col, value = num_col, num_col1, num_col2, ...)
+gather(df_wide, key = 新命名一個變數來區分數值的種類, value = 新命名一個變數來存放數值, 原始數值欄位1, 原始數值欄位2, ...)
 ```
 
 *** =instructions
