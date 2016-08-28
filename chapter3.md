@@ -99,7 +99,7 @@ straw_hat_df$battle_role[straw_hat_df$occupation %in% c("__", "__", "__", "__", 
 
 # 填入適當的值
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Doctor", "Navigator")] <- "Support"
-straw_hat_df$battle_role[straw_hat_df$occupation %in% c(Sniper", "Archaeologist")] <- "Range"
+straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Sniper", "Archaeologist")] <- "Range"
 straw_hat_df$battle_role[straw_hat_df$occupation %in% c("Captain", "Swordsman", "Cook", "Shipwright", "Musician")] <- "Fighter"
 
 # 將資料框輸出在 R Console
