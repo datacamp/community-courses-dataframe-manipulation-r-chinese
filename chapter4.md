@@ -280,13 +280,13 @@ straw_hat_long_df
 *** =sct
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `gather()` &#20989;&#25976;&#23559;&#23532;&#36039;&#26009;&#26694;&#36681;&#25563;&#25104;&#38263;&#36039;&#26009;&#26694; `straw_hat_long_df`&#65311;"
-
-test_data_frame("straw_hat_long_df",
-                columns = NULL,
-                eq_condition = "equivalent",
-                undefined_msg = msg,
-                undefined_cols_msg = msg,
-                incorrect_msg = msg)
+test_function("gather",
+              args = c("data", "key", "value"), index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = msg,
+              incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `straw_hat_long_df` &#36664;&#20986;&#22312; R Console&#65311;"
 test_output_contains("straw_hat_long_df",
@@ -358,6 +358,14 @@ test_output_contains("straw_hat_long_df",
                      incorrect_msg = msg)
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `spread()` &#20989;&#25976;&#23559;&#23532;&#36039;&#26009;&#26694;&#36681;&#25563;&#25104;&#38263;&#36039;&#26009;&#26694; `straw_hat_wide_df`&#65311;"
+test_function("spread",
+              args = c("data", "key", "value"), index = 1,
+              eval = TRUE,
+              eq_condition = "equivalent",
+              not_called_msg = msg,
+              args_not_specified_msg = msg,
+              incorrect_msg = msg)
+
 test_object("straw_hat_wide_df", 
             undefined_msg = msg, 
             incorrect_msg = msg) 
