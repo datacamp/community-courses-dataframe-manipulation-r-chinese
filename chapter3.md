@@ -295,6 +295,8 @@ sys_date_year <-
 # 產生 sys_date_year_num
 sys_date_year_num <- 
 
+# 將 sys_date 、 sys_date_year 與 sys_date_year_num 輸出在 R Console
+
 ```
 
 *** =solution
@@ -307,6 +309,11 @@ sys_date_year <- format(sys_date, '%Y')
 
 # 產生 sys_date_year_num
 sys_date_year_num <- as.numeric(sys_date_year)
+
+# 將 sys_date 、 sys_date_year 與 sys_date_year_num 輸出在 R Console
+sys_date
+sys_date_year
+sys_date_year_num
 ```
 
 *** =sct
@@ -325,7 +332,18 @@ msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#20351;&#29992; 
 test_object("sys_date_year_num", 
             undefined_msg = msg, 
             incorrect_msg = msg)
-            
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `sys_date` &#12289; `sys_date_year` &#33287; `sys_date_year_num` &#36664;&#20986;&#22312; R Console&#65311;"
+test_output_contains("sys_date",
+                     times = 1,
+                     incorrect_msg = msg)
+test_output_contains("sys_date_year",
+                     times = 1,
+                     incorrect_msg = msg)
+test_output_contains("sys_date_year_num",
+                     times = 1,
+                     incorrect_msg = msg)
+
 success_msg("&#22826;&#22909;&#20102;&#65292;&#25509;&#19979;&#20358;&#25105;&#20497;&#35201;&#25226;&#29986;&#20986;&#30340;&#35199;&#20803;&#24180;&#20221;&#28187;&#21435;&#33337;&#21729;&#20497;&#30340;&#24180;&#40801;&#65292;&#20358;&#24471;&#21040;&#27599;&#20491;&#20154;&#30340;&#35199;&#20803;&#20986;&#29983;&#24180;&#20221;&#65281;")
 ```
 
@@ -375,6 +393,9 @@ birth_year <-
 
 # 利用 as.character 將 birth_year 轉換成字元並指派給 birth_year_char
 birth_year_char <- 
+
+# 將 birth_year 與 birth_year_char 輸出在 R Console
+
 ```
 
 *** =solution
@@ -392,6 +413,10 @@ birth_year <- sys_date_year_num - age
 
 # 利用 as.character 將 birth_year 轉換成字元並指派給 birth_year_char
 birth_year_char <- as.character(birth_year)
+
+# 將 birth_year 與 birth_year_char 輸出在 R Console
+birth_year
+birth_year_char
 ```
 
 *** =sct
@@ -424,7 +449,15 @@ msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#27491;&#30906;&#23459;&#21578; 
 test_object("birth_year_char", 
             undefined_msg = msg, 
             incorrect_msg = msg)
-            
+
+msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#23559; `birth_year` &#33287; `birth_year_char` &#36664;&#20986;&#22312; R Console&#65311;"
+test_output_contains("birth_year",
+                     times = 1,
+                     incorrect_msg = msg)
+test_output_contains("birth_year_char",
+                     times = 1,
+                     incorrect_msg = msg)
+
 success_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#22312;&#19979;&#19968;&#20491;&#32244;&#32722;&#23601;&#21487;&#20197;&#22823;&#21151;&#21578;&#25104;&#65292;&#36245;&#24555;&#20358;&#21543;&#65281;")
 ```
 
