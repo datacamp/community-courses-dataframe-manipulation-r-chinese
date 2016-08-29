@@ -281,7 +281,7 @@ straw_hat_long_df
 ```{r}
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `gather()` &#20989;&#25976;&#23559;&#23532;&#36039;&#26009;&#26694;&#36681;&#25563;&#25104;&#38263;&#36039;&#26009;&#26694; `straw_hat_long_df`&#65311;"
 test_function("gather",
-              args = c("key", "value"), index = 1,
+              args = NULL, index = 1,
               eval = TRUE,
               eq_condition = "equivalent",
               not_called_msg = msg,
@@ -359,7 +359,7 @@ test_output_contains("straw_hat_long_df",
 
 msg = "&#30906;&#35469;&#26159;&#21542;&#26377;&#20351;&#29992; `spread()` &#20989;&#25976;&#23559;&#23532;&#36039;&#26009;&#26694;&#36681;&#25563;&#25104;&#38263;&#36039;&#26009;&#26694; `straw_hat_wide_df`&#65311;"
 test_function("spread",
-              args = c("key", "value"), index = 1,
+              args = NULL, index = 1,
               eval = TRUE,
               eq_condition = "equivalent",
               not_called_msg = msg,
