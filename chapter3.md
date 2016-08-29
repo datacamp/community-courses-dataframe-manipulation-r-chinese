@@ -65,7 +65,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#20294;&#20320;&#26377;&#24819;&#3
 --- type:NormalExercise lang:r xp:100 skills:4 key:ec549da7b3
 ## 類別型變數的分類（2）
 
-在輔助型戰鬥角色中，其實可以再將狙擊手（Sniper）另外歸類為遠距攻擊型（Range），而我們的船醫（Doctor）、考古學家（Archaeologist）與航海士（Navigator）仍然歸類為輔助型（Support），原本歸類為戰鬥型（Fighter）的船員不變，如此一來我們的類別會達到三種，這時我們採用向量索引值進行歸類。
+在輔助型戰鬥角色中，其實可以再將狙擊手（Sniper）另外歸類為遠距攻擊型（Range），而我們的船醫（Doctor）、考古學家（Archaeologist）與航海士（Navigator）仍然歸類為輔助型（Support），原本歸類為戰鬥型（Fighter）的船長（Captain）、劍士（Swordsman）、廚師（Cook）、船匠（Shipwright）與音樂家（Musician）則維持原歸類，如此一來我們的類別會達到三種，這時我們採用向量索引值進行歸類。
 
 *** =instructions
 - 將右邊編輯區畫底線的空位填入適當值。
