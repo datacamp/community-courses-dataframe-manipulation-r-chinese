@@ -304,7 +304,7 @@ success_msg("&#22826;&#26834;&#20102;&#65292;&#25105;&#20497;&#24050;&#32147;&#2
 [`spread()`](http://www.rdocumentation.org/packages/tidyr/versions/0.5.1/topics/spread) 函數。函數必須要指定幾個參數，第一個是長資料框名稱，而 `key = ` 是用來儲存**數值種類**的欄位名稱，`value = ` 是用來儲存**數值**的欄位名稱：
 
 ```{r}
-spread(df_long, key = cate_col, value = num_col)
+spread(df_long, key = 類別欄位, value = 數值欄位)
 ```
 
 *** =instructions
