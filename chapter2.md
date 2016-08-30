@@ -8,6 +8,8 @@ description : 實務上我們很常會有新增變數、刪除變數或者篩選
 
 草帽海賊團的廚師賓什莫克·香吉士要為船員們準備餐點，卻發現主要角色設定遺漏了大家最喜愛的料理，於是他向可愛的讀者求助，就讓我們來幫助他將最喜愛的料理 `favorite_food` 加入 `straw_hat_df` 中。
 
+資料來源：[One Piece Wiki](http://onepiece.wikia.com/wiki/Main_Page)
+
 *** =instructions
 - 將右邊編輯區已經定義好的 `favorite_food` 向量加入 `straw_hat_df` 中。
 - 把 `straw_hat_df` 輸出在 R Console 看看。
@@ -381,6 +383,8 @@ df <- rbind(df, row_to_add)
 ```
 
 鄉民們對於第十位船員的猜測議論紛紛，各種神預測，在這裡我們稍微懷舊一下，草帽海賊團永遠的夥伴：阿拉巴斯坦王國的薇薇公主。
+
+資料來源：[One Piece Wiki](http://onepiece.wikia.com/wiki/Main_Page)
 
 *** =instructions
 - 利用 `rbind()` 將薇薇公主加入草帽海賊團資料框。

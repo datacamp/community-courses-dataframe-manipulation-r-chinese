@@ -8,6 +8,8 @@ description : 在一個資料分析專案中，資料可能散落在多個資料
 
 **惡魔果實**是海賊王世界的奇特果實，有「海上惡魔的化身」的別稱，可以讓食用者得到特殊能力，擁有惡魔果實的人普遍被叫作「惡魔果實能力者」。在草帽海賊團中有 4 個能力者，但你注意到我們並沒有一個欄位紀錄船員的惡魔果實資訊，於是你駭入海軍的機密資料庫取得了草帽海賊團的惡魔果實資料 `straw_hat_devil_fruit`。
 
+資料來源：[One Piece Wiki](http://onepiece.wikia.com/wiki/Main_Page)
+
 *** =instructions
 - 將草帽海賊團的惡魔果實資料框輸出在 R Console。
 
@@ -316,6 +318,8 @@ success_msg("&#24685;&#21916;&#20320;&#65292;&#20320;&#24050;&#32147;&#25104;&#2
 ```{r}
 merge(df1, df2, by = c("col1", "col2", ...))
 ```
+
+資料來源：[One Piece Wiki](http://onepiece.wikia.com/wiki/Main_Page)
 
 *** =instructions
 - 將 `luffy_event` 與 `luffy_event_bounty` 輸出在 R Console 看看。
